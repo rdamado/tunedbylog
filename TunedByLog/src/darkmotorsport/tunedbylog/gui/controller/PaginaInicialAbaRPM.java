@@ -221,7 +221,7 @@ public class PaginaInicialAbaRPM extends PaginaInicialController {
 
 			Label lblIndicadorAutoCorrecao = new Label();
 			lblIndicadorAutoCorrecao.setId("lblIndicadorAutoCorrecao");
-			lblIndicadorAutoCorrecao.setText("Mapa com correção de sonda");
+			lblIndicadorAutoCorrecao.setText("Mapa com correÃ§Ã£o de sonda");
 			lblIndicadorAutoCorrecao.setStyle("-fx-background-color:crimson;-fx-font-weight:bold;-fx-font-size: 12pt;");
 			hboxBotoeslog.getChildren().add(lblIndicadorAutoCorrecao);
 

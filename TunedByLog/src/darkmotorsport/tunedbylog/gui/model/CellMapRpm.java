@@ -79,17 +79,17 @@ public class CellMapRpm extends TableCell<LinhaMapRpm, String> {
 				
 				if (valorPressaoComb != null) {
 					sb.append("\n");
-					sb.append("Press„o Comb.: ");
+					sb.append("Press√£o Comb.: ");
 					sb.append(valorPressaoComb);
 				}
 				if (valorPressaoOleo != null) {
 					sb.append("\n");
-					sb.append("Press„o Ûleo: ");
+					sb.append("Press√£o √≥leo: ");
 					sb.append(valorPressaoOleo);
 				}
 				if (valorBateriaTensao != null) {
 					sb.append("\n");
-					sb.append("Tens„o Bat.: ");
+					sb.append("Tens√£o Bat.: ");
 					sb.append(valorBateriaTensao);
 				}
 
@@ -101,25 +101,25 @@ public class CellMapRpm extends TableCell<LinhaMapRpm, String> {
 
 				if (celulaMapRpm.getSondaMedia() != null) {
 					sb.append("\n");
-					sb.append("Lamda MÈdia: ");
+					sb.append("Lamda M√©dia: ");
 					sb.append(celulaMapRpm.getSondaMedia());
 				}
 
 				if (celulaMapRpm.getAutoCorrecao() != null) {
 					sb.append("\n");
-					sb.append("Auto CorreÁ„o Sonda: ");
+					sb.append("Auto Corre√ß√£o Sonda: ");
 					sb.append(celulaMapRpm.getAutoCorrecao() + "%");
 				}
 
 				if (correcao != null) {
 					sb.append("\n");
-					sb.append("CorreÁ„o: ");
+					sb.append("Corre√ß√£o: ");
 					sb.append(correcao + "%");
 				}
 
 				if (celulaMapRpm.getTempoInjecaoMedia() != null) {
 					sb.append("\n");
-					sb.append("mS MÈdia: ");
+					sb.append("mS M√©dia: ");
 					sb.append(celulaMapRpm.getTempoInjecaoMedia());
 				}
 

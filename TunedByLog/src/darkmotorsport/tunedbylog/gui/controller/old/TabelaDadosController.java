@@ -487,11 +487,11 @@ public class TabelaDadosController extends SuperTabelaDadosController {
 
 		lineChartInjecao.getData().clear();
 
-//		lineChartInjecao.setTitle("Tempo de Injeção:");
+//		lineChartInjecao.setTitle("Tempo de InjeÃ§Ã£o:");
 		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
 		series.setName("Mapa(mS)");
 		XYChart.Series<String, Number> seriesCorrigido = new XYChart.Series<String, Number>();
-		seriesCorrigido.setName("Editável(mS)");
+		seriesCorrigido.setName("EditÃ¡vel(mS)");
 
 		for (int i = 0; i < getListaMap().size(); i++) {
 			series.getData().add(new XYChart.Data(getListaMap().get(i).toString(),
@@ -515,7 +515,7 @@ public class TabelaDadosController extends SuperTabelaDadosController {
 	private void configurarGraficoMapaEditado() {
 
 		XYChart.Series<String, Number> seriesCorrigido = new XYChart.Series<String, Number>();
-		seriesCorrigido.setName("Editável(mS)");
+		seriesCorrigido.setName("EditÃ¡vel(mS)");
 
 		for (int i = 0; i < getListaMap().size(); i++) {
 			String string = mapaMsCorrigidoEditado.getValores().get(i);
@@ -1253,7 +1253,7 @@ public class TabelaDadosController extends SuperTabelaDadosController {
 		MathContext mc = new MathContext(15, RoundingMode.HALF_UP);
 		
 		if(!(selectedCells != null && selectedCells.size() > 2) ) {
-			apresentarAlertaAviso("Selecione três ou mais células na tabela para interpolar!");
+			apresentarAlertaAviso("Selecione trÃªs ou mais cÃ©lulas na tabela para interpolar!");
 			return;
 		}
 
@@ -1297,7 +1297,7 @@ public class TabelaDadosController extends SuperTabelaDadosController {
 		String segundoValor = (String)tablePosition2.getTableColumn().getCellObservableValue(rowIndex).getValue();
 		
 		if(primeiroValor.contains("-") ||segundoValor.contains("-")) {
-			apresentarAlertaAviso("A primeira e a última célula devem conter valor númerico!");
+			apresentarAlertaAviso("A primeira e a Ãºltima cÃ©lula devem conter valor nÃºmerico!");
 			return;
 		}
 		
@@ -1343,7 +1343,7 @@ public class TabelaDadosController extends SuperTabelaDadosController {
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setTitle("Aviso");
 		alert.setHeaderText(null);
-		alert.setContentText("Somente a linha \"Editável(mS)\" pode ser interpolada.");
+		alert.setContentText("Somente a linha \"EditÃ¡vel(mS)\" pode ser interpolada.");
 		alert.showAndWait();
 	}
 

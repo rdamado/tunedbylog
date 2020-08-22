@@ -287,7 +287,7 @@ public class SuperTabelaDadosController extends InicioController {
 	protected static float MAP_2_00 = 2.00f;
 
 //	private Map<Float, BigDecimal> mapaValorMedio = new HashMap<Float, BigDecimal>();
-	protected DadoTabelaMap sondaMedia = new DadoTabelaMap("Sonda MÈdia", "-", "-", "-", "-", "-", "-", "-", "-", "-",
+	protected DadoTabelaMap sondaMedia = new DadoTabelaMap("Sonda M√©dia", "-", "-", "-", "-", "-", "-", "-", "-", "-",
 			"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
 			"-", "-", "-", "-", "-", "-", "-", "-", "-", "-");
 	protected DadoTabelaMap qtdAmostras = new DadoTabelaMap("Qtd Amostras", "-", "-", "-", "-", "-", "-", "-", "-", "-",
@@ -302,16 +302,16 @@ public class SuperTabelaDadosController extends InicioController {
 			"4.068", "4.364", "4.734", "5.189", "5.773", "6.348", "7.017", "8.874", "10.730", "11.385", "12.165",
 			"12.782", "13.487", "14.132", "15.000", "15.866", "16.662", "17.286", "18.053", "18.896", "18.896",
 			"18.896");
-	protected DadoTabelaMap mapaMsCorrigidoEditado = new DadoTabelaMap("Edit·vel(mS)", "-", "-", "-", "-", "-", "-",
+	protected DadoTabelaMap mapaMsCorrigidoEditado = new DadoTabelaMap("Edit√°vel(mS)", "-", "-", "-", "-", "-", "-",
 			"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
 			"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-");
-	protected DadoTabelaMap correcaoLinha = new DadoTabelaMap("CorreÁ„o", "-", "-", "-", "-", "-", "-", "-", "-", "-",
+	protected DadoTabelaMap correcaoLinha = new DadoTabelaMap("Corre√ß√£o", "-", "-", "-", "-", "-", "-", "-", "-", "-",
 			"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
 			"-", "-", "-", "-", "-", "-", "-", "-", "-", "-");
 	protected DadoTabelaMap correcaoSondaLinha = getCorrecaoSondaLinhaInicial();
 
 	protected DadoTabelaMap getCorrecaoSondaLinhaInicial() {
-		return new DadoTabelaMap("CorreÁ„o Sonda", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
+		return new DadoTabelaMap("Corre√ß√£o Sonda", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
 				"-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
 				"-", "-", "-", "-", "-");
 	}

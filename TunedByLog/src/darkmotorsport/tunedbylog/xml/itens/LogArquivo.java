@@ -12,6 +12,9 @@ public class LogArquivo {
 	private List<ControleTracaoMarcha> controleTracao;
 	private List<LogArquivoCanal> canais;
 	private String controleLargadaModo;
+	private String mapa;
+
+	private String mapaPowerGrip;
 
 	public String getControleLargadaModo() {
 		return this.controleLargadaModo;
@@ -83,5 +86,21 @@ public class LogArquivo {
 
 	public void setCanais(List<LogArquivoCanal> canais) {
 		this.canais = canais;
+	}
+
+	public String getMapa() {
+		return this.mapa;
+	}
+
+	public void setMapa(String mapa) {
+		this.mapa = mapa;
+	}
+
+	public String getMapaPowerGrip() {
+		return this.mapaPowerGrip;
+	}
+
+	public void setMapaPowerGrip(String mapaPowerGrip) {
+		this.mapaPowerGrip = mapaPowerGrip;
 	}
 }

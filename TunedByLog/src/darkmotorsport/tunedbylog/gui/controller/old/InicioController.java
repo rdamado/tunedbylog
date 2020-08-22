@@ -92,7 +92,7 @@ public class InicioController {
 			Stage stage = new Stage();
 			stage.initModality(Modality.NONE);
 			stage.initStyle(StageStyle.UTILITY);
-			stage.setTitle("Utilização");
+			stage.setTitle("UtilizaÃ§Ã£o");
 			stage.setScene(new Scene(root1));
 			stage.show();
 

@@ -178,8 +178,8 @@ public class Mainapp extends Application {
 			e.printStackTrace();
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Erro ao salvar");
-			alert.setHeaderText("Não foi possível salvar os dados");
-			alert.setContentText("Nào foi possível salvar os dados para o arquivo:\n" + file.getPath());
+			alert.setHeaderText("NÃ£o foi possÃ­vel salvar os dados");
+			alert.setContentText("NÃ£o foi possÃ­vel salvar os dados para o arquivo:\n" + file.getPath());
 
 			alert.showAndWait();
 		}
@@ -216,8 +216,8 @@ public class Mainapp extends Application {
 			e.printStackTrace();
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Erro ao carregar");
-			alert.setHeaderText("Não foi possível carregar os dados");
-			alert.setContentText("Não foi possível carregar os dados do arquivo:\n" + file.getPath());
+			alert.setHeaderText("NÃ£o foi possÃ­vel carregar os dados");
+			alert.setContentText("NÃ£o foi possÃ­vel carregar os dados do arquivo:\n" + file.getPath());
 
 			alert.showAndWait();
 		}

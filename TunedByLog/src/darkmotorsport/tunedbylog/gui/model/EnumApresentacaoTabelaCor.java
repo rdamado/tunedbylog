@@ -2,7 +2,7 @@ package darkmotorsport.tunedbylog.gui.model;
 
 public enum EnumApresentacaoTabelaCor {
 
-	QTD_AMOSTRAS("Quantidade de Amostras"), CORRECAO("Perc. Correção"), AUTO_CORRECAO("Correção Sonda");
+	QTD_AMOSTRAS("Quantidade de Amostras"), CORRECAO("Perc. CorreÃ§Ã£o"), AUTO_CORRECAO("CorreÃ§Ã£o Sonda");
 
 	private String label;
 
