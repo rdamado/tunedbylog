@@ -39,6 +39,7 @@ import javafx.scene.input.ScrollEvent;
 import javafx.util.Callback;
 import javafx.scene.layout.HBox;
 
+@SuppressWarnings("restriction")
 public class PaginaInicialAbaRPM extends PaginaInicialController {
 
 	@SuppressWarnings("rawtypes")
