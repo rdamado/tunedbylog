@@ -33,8 +33,5 @@ public class MapBase {
 	public void setRpm(BigDecimal rpm) {
 		this.rpm = rpm;
 	}
-	
-	
-	
 
 }

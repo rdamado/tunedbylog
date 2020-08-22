@@ -4,117 +4,117 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Log {
-    private boolean acompanharPonteiro = true;
-    private String enderecoArquivo;
-    private LogInformacao informacao;
-    private List<DataCanal> listaDados = new ArrayList<DataCanal>();
-    private List<Tag> listaTags = new ArrayList<Tag>();
-    private String tipoControle = "L";
-    private boolean controleLargadaHabilitado;
-    private String controleLargadaModo = "T";
-    private int idCanalExibicao;
-    private List<ControleLargadaItem> controleLargada = new ArrayList<ControleLargadaItem>();
-    private List<ControleTracaoMarcha> controleTracao = new ArrayList<ControleTracaoMarcha>();
-    private String resumo = "";
-    
-    public boolean autoCorrecaoAtivada = false;
+	private boolean acompanharPonteiro = true;
+	private String enderecoArquivo;
+	private LogInformacao informacao;
+	private List<DataCanal> listaDados = new ArrayList<DataCanal>();
+	private List<Tag> listaTags = new ArrayList<Tag>();
+	private String tipoControle = "L";
+	private boolean controleLargadaHabilitado;
+	private String controleLargadaModo = "T";
+	private int idCanalExibicao;
+	private List<ControleLargadaItem> controleLargada = new ArrayList<ControleLargadaItem>();
+	private List<ControleTracaoMarcha> controleTracao = new ArrayList<ControleTracaoMarcha>();
+	private String resumo = "";
 
-    public boolean isAcompanharPonteiro() {
-        return this.acompanharPonteiro;
-    }
+	public boolean autoCorrecaoAtivada = false;
 
-    public void setAcompanharPonteiro(boolean acompanharPonteiro) {
-        this.acompanharPonteiro = acompanharPonteiro;
-    }
+	public boolean isAcompanharPonteiro() {
+		return this.acompanharPonteiro;
+	}
 
-    public String getEnderecoArquivo() {
-        return this.enderecoArquivo;
-    }
+	public void setAcompanharPonteiro(boolean acompanharPonteiro) {
+		this.acompanharPonteiro = acompanharPonteiro;
+	}
 
-    public void setEnderecoArquivo(String enderecoArquivo) {
-        this.enderecoArquivo = enderecoArquivo;
-    }
+	public String getEnderecoArquivo() {
+		return this.enderecoArquivo;
+	}
 
-    public LogInformacao getInformacao() {
-        return this.informacao;
-    }
+	public void setEnderecoArquivo(String enderecoArquivo) {
+		this.enderecoArquivo = enderecoArquivo;
+	}
 
-    public void setInformacao(LogInformacao informacao) {
-        this.informacao = informacao;
-    }
+	public LogInformacao getInformacao() {
+		return this.informacao;
+	}
 
-    public List<DataCanal> getListaDados() {
-        return this.listaDados;
-    }
+	public void setInformacao(LogInformacao informacao) {
+		this.informacao = informacao;
+	}
 
-    public void setListaDados(List<DataCanal> listaDados) {
-        this.listaDados = listaDados;
-    }
+	public List<DataCanal> getListaDados() {
+		return this.listaDados;
+	}
 
-    public List<Tag> getListaTags() {
-        return this.listaTags;
-    }
+	public void setListaDados(List<DataCanal> listaDados) {
+		this.listaDados = listaDados;
+	}
 
-    public void setListaTags(List<Tag> listaTags) {
-        this.listaTags = listaTags;
-    }
+	public List<Tag> getListaTags() {
+		return this.listaTags;
+	}
 
-    public String getTipoControle() {
-        return this.tipoControle;
-    }
+	public void setListaTags(List<Tag> listaTags) {
+		this.listaTags = listaTags;
+	}
 
-    public void setTipoControle(String tipoControle) {
-        if (tipoControle == null || !tipoControle.equals("T")) {
-            tipoControle = "L";
-        }
-        this.tipoControle = tipoControle;
-    }
+	public String getTipoControle() {
+		return this.tipoControle;
+	}
 
-    public boolean isControleLargadaHabilitado() {
-        return this.controleLargadaHabilitado;
-    }
+	public void setTipoControle(String tipoControle) {
+		if (tipoControle == null || !tipoControle.equals("T")) {
+			tipoControle = "L";
+		}
+		this.tipoControle = tipoControle;
+	}
 
-    public void setControleLargadaHabilitado(boolean controleLargadaHabilitado) {
-        this.controleLargadaHabilitado = controleLargadaHabilitado;
-    }
+	public boolean isControleLargadaHabilitado() {
+		return this.controleLargadaHabilitado;
+	}
 
-    public String getControleLargadaModo() {
-        return this.controleLargadaModo;
-    }
+	public void setControleLargadaHabilitado(boolean controleLargadaHabilitado) {
+		this.controleLargadaHabilitado = controleLargadaHabilitado;
+	}
 
-    public void setControleLargadaModo(String controleLargadaModo) {
-        this.controleLargadaModo = controleLargadaModo;
-    }
+	public String getControleLargadaModo() {
+		return this.controleLargadaModo;
+	}
 
-    public List<ControleLargadaItem> getControleLargada() {
-        return this.controleLargada;
-    }
+	public void setControleLargadaModo(String controleLargadaModo) {
+		this.controleLargadaModo = controleLargadaModo;
+	}
 
-    public void setControleLargada(List<ControleLargadaItem> controleLargada) {
-        this.controleLargada = controleLargada;
-    }
+	public List<ControleLargadaItem> getControleLargada() {
+		return this.controleLargada;
+	}
 
-    public List<ControleTracaoMarcha> getControleTracao() {
-        return this.controleTracao;
-    }
+	public void setControleLargada(List<ControleLargadaItem> controleLargada) {
+		this.controleLargada = controleLargada;
+	}
 
-    public void setControleTracao(List<ControleTracaoMarcha> controleTracao) {
-        this.controleTracao = controleTracao;
-    }
+	public List<ControleTracaoMarcha> getControleTracao() {
+		return this.controleTracao;
+	}
 
-    public String getResumo() {
-        return this.resumo;
-    }
+	public void setControleTracao(List<ControleTracaoMarcha> controleTracao) {
+		this.controleTracao = controleTracao;
+	}
 
-    public void setResumo(String resumo) {
-        this.resumo = resumo;
-    }
+	public String getResumo() {
+		return this.resumo;
+	}
 
-    public int getIdCanalExibicao() {
-        return this.idCanalExibicao;
-    }
+	public void setResumo(String resumo) {
+		this.resumo = resumo;
+	}
 
-    public void setIdCanalExibicao(int idCanalSelecionado) {
-        this.idCanalExibicao = idCanalSelecionado;
-    }
+	public int getIdCanalExibicao() {
+		return this.idCanalExibicao;
+	}
+
+	public void setIdCanalExibicao(int idCanalSelecionado) {
+		this.idCanalExibicao = idCanalSelecionado;
+	}
 }

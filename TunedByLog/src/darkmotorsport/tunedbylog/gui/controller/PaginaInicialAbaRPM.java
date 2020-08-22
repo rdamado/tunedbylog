@@ -36,8 +36,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.input.ScrollEvent;
-import javafx.util.Callback;
 import javafx.scene.layout.HBox;
+import javafx.util.Callback;
 
 @SuppressWarnings("restriction")
 public class PaginaInicialAbaRPM extends PaginaInicialController {
@@ -434,7 +434,7 @@ public class PaginaInicialAbaRPM extends PaginaInicialController {
 					mb.setMap(celula.getMap());
 					mb.setRpm(celula.getRpm());
 					mb.setTempoInjecao(celula.getTempoInjecaoMedia());
-					
+
 					mapMapaBase.put(celula.getMap(), mb);
 				}
 
@@ -454,30 +454,26 @@ public class PaginaInicialAbaRPM extends PaginaInicialController {
 				if ((tempoimAtual != null && tempoimAtual.compareTo(BigDecimal.ZERO) > 0) && (tempoimAnterior != null && tempoimAnterior.compareTo(BigDecimal.ZERO) > 0)) {
 					// TODO Corrigir base do rpm corrigido
 
-					
 //					tempoimAnterior
-					
-					
+
 					BigDecimal divisor = mapMapaBase.get(atual.getMap()).getTempoInjecao();
 					BigDecimal tempoInjec = BigDecimal.ZERO;
-					
-					if(divisor.compareTo(BigDecimal.ZERO) == 0 && tempoimAnterior.compareTo(BigDecimal.ZERO) != 0) {
+
+					if (divisor.compareTo(BigDecimal.ZERO) == 0 && tempoimAnterior.compareTo(BigDecimal.ZERO) != 0) {
 						MapBase mb = new MapBase();
 						mb.setMap(anterior.getMap());
 						mb.setRpm(rpmBase);
 						mb.setTempoInjecao(tempoimAnterior);
 						mapMapaBase.put(anterior.getMap(), mb);
 						divisor = tempoimAnterior;
-						
+
 					}
-					
+
 					BigDecimal multiply = tempoimAtual.multiply(new BigDecimal("100"), mc);
 					BigDecimal divide = multiply.divide(divisor, mc);
 					tempoInjec = divide.setScale(1, RoundingMode.HALF_EVEN).subtract(new BigDecimal("100"));
-					
+
 					atual.setTempoInjecaoComparadaAnterior(tempoInjec);
-					
-					
 
 				}
 			}
@@ -924,12 +920,13 @@ public class PaginaInicialAbaRPM extends PaginaInicialController {
 		hboxSelecaoTabela.getChildren().addAll(lblAdd);
 	}
 
-	@FXML public void recarregarArquivoWOT() {
+	@FXML
+	public void recarregarArquivoWOT() {
 		tpsMinimo.setText("95");
 		tpsMaximo.setText("100");
 		doRecarregarArquivo();
 		carregarAbaCorrecaoRpm();
-		
+
 	}
 
 	private void carregarAbaCorrecaoRpm() {
@@ -939,8 +936,5 @@ public class PaginaInicialAbaRPM extends PaginaInicialController {
 			calcularCorrecaoRPM_Media();
 		}
 	}
-
-
-	
 
 }

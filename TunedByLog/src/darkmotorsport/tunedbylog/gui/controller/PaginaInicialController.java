@@ -13,19 +13,16 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.sun.javafx.iio.gif.GIFImageLoader2;
-
 import darkmotorsport.tunedbylog.gui.Mainapp;
 import darkmotorsport.tunedbylog.gui.calc.Calculador;
 import darkmotorsport.tunedbylog.gui.model.AlvoSondaLambda;
 import darkmotorsport.tunedbylog.gui.model.ArquivoLog;
 import darkmotorsport.tunedbylog.gui.model.ArquivoLogFueltech;
 import darkmotorsport.tunedbylog.gui.model.CalculadorMapRpm;
+import darkmotorsport.tunedbylog.gui.model.CellEditavel;
 import darkmotorsport.tunedbylog.gui.model.ConfiguracoesWrapper;
 import darkmotorsport.tunedbylog.gui.model.DadoTabelaMap;
 import darkmotorsport.tunedbylog.gui.model.LinhaMapRpm;
-import darkmotorsport.tunedbylog.gui.model.CellEditavel;
-import darkmotorsport.tunedbylog.gui.model.PosicaoValor;
 import darkmotorsport.tunedbylog.util.Constantes;
 import darkmotorsport.tunedbylog.util.FiltroCanal;
 import darkmotorsport.tunedbylog.util.UtilData;
@@ -91,7 +88,7 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 	public void abrirLogFueltech() {
 		limparListasValoresSonda();
 		limparListasValoresCorrecaoSonda();
-		
+
 		try {
 
 			if (file == null) {
@@ -106,13 +103,9 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 				return;
 			}
 			lblCaminhoArquivo.setText(file.getAbsolutePath());
-			
-			
-			
-			
+
 			ArquivoLogFueltech logGrav = new ArquivoLogFueltech();
-			
-			
+
 			logGrav.abrirArquivoLog(file);
 
 //			List<DataCanal> listaDados = arquivoCarregado.getListaDados();
@@ -1244,7 +1237,7 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 	}
 
 	public void callBackConfigurarSonda(List<AlvoSondaLambda> lista) {
-		
+
 		CalculadorMapRpm m = new CalculadorMapRpm();
 		List<LinhaMapRpm> linhas = m.gerarLinhas();
 
@@ -1269,37 +1262,30 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 			listaValoresSonda.add(null);
 		}
 		for (AlvoSondaLambda alvo : lista) {
-			//listaValoresSonda.set(PosicaoValor.getMapaPosicoesValores().get(alvo.getValorMap()), alvo.getValorLambda().toString());
+			// listaValoresSonda.set(PosicaoValor.getMapaPosicoesValores().get(alvo.getValorMap()),
+			// alvo.getValorLambda().toString());
 			for (int i = 0; i < linhas.size(); i++) {
 				LinhaMapRpm linhaMapRpm = linhas.get(i);
-				if(linhaMapRpm.getMap().compareTo(new BigDecimal(alvo.getValorMap().toString())) == 0 ) {
+				if (linhaMapRpm.getMap().compareTo(new BigDecimal(alvo.getValorMap().toString())) == 0) {
 					listaValoresSonda.set(i, alvo.getValorLambda().toString());
 					break;
 				}
 			}
 		}
-		
-	
-		
-		
 
 //		List<Float> listaMaps = new ArrayList<Float>();
 //		listaMaps.addAll(PosicaoValor.getMapaPosicoesValores().keySet());
 //		Collections.sort(listaMaps);
-		
+
 		List<Float> listaMaps = new ArrayList<Float>();
-		
-	
-		
+
 		for (int i = 0; i < linhas.size(); i++) {
 			LinhaMapRpm linhaMapRpm = linhas.get(i);
 			listaMaps.add(linhaMapRpm.getMap().floatValue());
 		}
-		
-		
+
 		Collections.sort(listaMaps);
-		
-		
+
 		for (int i = 0; i < listaMaps.size(); i++) {
 			Float fMap = listaMaps.get(i);
 			if (fMap < map1) {
@@ -1311,50 +1297,41 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 			}
 		}
 
-		
-		
-		
 		BigDecimal posMap1 = null;
 		BigDecimal posMap2 = null;
 		BigDecimal posMap3 = null;
 		BigDecimal posMap4 = null;
 		BigDecimal posMap5 = null;
-		
+
 		for (int i = 0; i < linhas.size(); i++) {
 			LinhaMapRpm linhaMapRpm = linhas.get(i);
-			if(linhaMapRpm.getMap().compareTo(new BigDecimal(map1.toString())) == 0) {
-				posMap1 =  new BigDecimal(i);
+			if (linhaMapRpm.getMap().compareTo(new BigDecimal(map1.toString())) == 0) {
+				posMap1 = new BigDecimal(i);
 				continue;
 			}
-			
-			if(linhaMapRpm.getMap().compareTo(new BigDecimal(map2.toString())) == 0) {
-				posMap2 =  new BigDecimal(i);
+
+			if (linhaMapRpm.getMap().compareTo(new BigDecimal(map2.toString())) == 0) {
+				posMap2 = new BigDecimal(i);
 				continue;
 			}
-			
-			if(linhaMapRpm.getMap().compareTo(new BigDecimal(map3.toString())) == 0) {
-				posMap3 =  new BigDecimal(i);
+
+			if (linhaMapRpm.getMap().compareTo(new BigDecimal(map3.toString())) == 0) {
+				posMap3 = new BigDecimal(i);
 				continue;
 			}
-			
-			
-			if(linhaMapRpm.getMap().compareTo(new BigDecimal(map4.toString())) == 0) {
-				posMap4 =  new BigDecimal(i);
+
+			if (linhaMapRpm.getMap().compareTo(new BigDecimal(map4.toString())) == 0) {
+				posMap4 = new BigDecimal(i);
 				continue;
 			}
-			
-			if(linhaMapRpm.getMap().compareTo(new BigDecimal(map5.toString())) == 0) {
-				posMap5 =  new BigDecimal(i);
+
+			if (linhaMapRpm.getMap().compareTo(new BigDecimal(map5.toString())) == 0) {
+				posMap5 = new BigDecimal(i);
 				continue;
 			}
-			
+
 		}
-		
-		
-		
-		
-		
-		
+
 //		BigDecimal posMap1 = new BigDecimal(PosicaoValor.getMapaPosicoesValores().get(map1));
 //		BigDecimal posMap2 = new BigDecimal(PosicaoValor.getMapaPosicoesValores().get(map2));
 //		BigDecimal posMap3 = new BigDecimal(PosicaoValor.getMapaPosicoesValores().get(map3));

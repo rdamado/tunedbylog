@@ -9,7 +9,7 @@ public class ConfiguracoesWrapper {
 	private DadoTabelaMap lambdaAlvo;
 	private DadoTabelaMap mapaMs;
 	private DadoTabelaMap mapaMsCorrigidoEditado;
-	
+
 	private String tpsMinimo;
 	private String tpsMaximo;
 	private String tempMotorMinimo;
@@ -17,13 +17,12 @@ public class ConfiguracoesWrapper {
 	private String precisaoMap;
 	private String sondaMinimo;
 	private String sondaMaximo;
-	
+
 	private String percTruncada;
 	private Boolean truncada;
 
-
 	@XmlElement(name = "lambdaAlvo")
-    public DadoTabelaMap getLambdaAlvo() {
+	public DadoTabelaMap getLambdaAlvo() {
 		return lambdaAlvo;
 	}
 
@@ -49,7 +48,6 @@ public class ConfiguracoesWrapper {
 		this.mapaMsCorrigidoEditado = mapaMsCorrigidoEditado;
 	}
 
-	
 	@XmlElement(name = "tpsMinimo")
 	public String getTpsMinimo() {
 		return tpsMinimo;
@@ -59,7 +57,6 @@ public class ConfiguracoesWrapper {
 		this.tpsMinimo = tpsMinimo;
 	}
 
-	
 	@XmlElement(name = "tpsMaximo")
 	public String getTpsMaximo() {
 		return tpsMaximo;
@@ -69,7 +66,6 @@ public class ConfiguracoesWrapper {
 		this.tpsMaximo = tpsMaximo;
 	}
 
-	
 	@XmlElement(name = "tempMotorMinimo")
 	public String getTempMotorMinimo() {
 		return tempMotorMinimo;
@@ -79,27 +75,24 @@ public class ConfiguracoesWrapper {
 		this.tempMotorMinimo = tempMotorMinimo;
 	}
 
-	
 	@XmlElement(name = "tempMotorMaximo")
 	public String getTempMotorMaximo() {
 		return tempMotorMaximo;
 	}
-	
+
 	public void setTempMotorMaximo(String tempMotorMaximo) {
 		this.tempMotorMaximo = tempMotorMaximo;
 	}
 
-	
 	@XmlElement(name = "precisaoMap")
 	public String getPrecisaoMap() {
 		return precisaoMap;
 	}
-	
+
 	public void setPrecisaoMap(String precisaoMap) {
 		this.precisaoMap = precisaoMap;
 	}
 
-	
 	@XmlElement(name = "sondaMinimo")
 	public String getSondaMinimo() {
 		return sondaMinimo;
@@ -118,7 +111,6 @@ public class ConfiguracoesWrapper {
 		this.sondaMaximo = sondaMaximo;
 	}
 
-	
 	@XmlElement(name = "percTruncada")
 	public String getPercTruncada() {
 		return percTruncada;
@@ -136,10 +128,5 @@ public class ConfiguracoesWrapper {
 	public void setTruncada(Boolean truncada) {
 		this.truncada = truncada;
 	}
-	
-	
-	
-	
-	
-	
+
 }

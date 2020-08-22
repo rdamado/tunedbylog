@@ -27,7 +27,7 @@ public class ArquivoLogFueltech {
 	public int pos_ALVO_MALHA = -1;
 	public int pos_SONDA_MALHA = -1;
 	public int pos_TEMP_MOTOR = -1;
-	
+
 	public List<BigDecimal> listaRpm = new ArrayList<BigDecimal>();
 	public List<BigDecimal> listaTPS = new ArrayList<BigDecimal>();
 	public List<BigDecimal> listaMAP = new ArrayList<BigDecimal>();
@@ -67,8 +67,8 @@ public class ArquivoLogFueltech {
 
 						}
 					}
-				}else {
-					
+				} else {
+
 					listaRpm.add(new BigDecimal(csvRecord.get(pos_RPM)));
 					listaTPS.add(new BigDecimal(csvRecord.get(pos_TPS).replaceAll(",", ".")));
 					listaMAP.add(new BigDecimal(csvRecord.get(pos_MAP).replaceAll(",", ".")));

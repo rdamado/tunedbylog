@@ -1,7 +1,6 @@
 package darkmotorsport.tunedbylog.gui.model;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +75,7 @@ public class CellMapRpm extends TableCell<LinhaMapRpm, String> {
 					sb.append("CLT: ");
 					sb.append(valorTemperaturaMotor);
 				}
-				
+
 				if (valorPressaoComb != null) {
 					sb.append("\n");
 					sb.append("Pressão Comb.: ");

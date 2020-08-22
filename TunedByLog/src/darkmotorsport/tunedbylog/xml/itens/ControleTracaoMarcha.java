@@ -5,7 +5,7 @@ package darkmotorsport.tunedbylog.xml.itens;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControleTracaoMarcha  {
+public class ControleTracaoMarcha {
 	private int marcha;
 	private boolean habilitado;
 	private float tempoGap;

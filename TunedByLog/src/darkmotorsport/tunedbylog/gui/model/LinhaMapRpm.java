@@ -10,7 +10,7 @@ public class LinhaMapRpm {
 	BigDecimal mapLambdaMedia;
 	BigDecimal mapCorrecaoMedia;
 	BigDecimal mapLambdaAlvo;
-	
+
 	List<CelulaMapRpm> listaCelulas = new ArrayList<CelulaMapRpm>();
 
 	public BigDecimal getMap() {
@@ -52,8 +52,5 @@ public class LinhaMapRpm {
 	public void setMapLambdaAlvo(BigDecimal mapLambdaAlvo) {
 		this.mapLambdaAlvo = mapLambdaAlvo;
 	}
-	
-	
-
 
 }

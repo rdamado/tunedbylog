@@ -44,7 +44,7 @@ public class SondaAlvoController {
 		alvos.add(new AlvoSondaLambda(getValorFloatTextField(mapPos3), getValorFloatTextField(lambdaPos3)));
 		alvos.add(new AlvoSondaLambda(getValorFloatTextField(mapPos4), getValorFloatTextField(lambdaPos4)));
 		alvos.add(new AlvoSondaLambda(getValorFloatTextField(mapPos5), getValorFloatTextField(lambdaPos5)));
-		
+
 		mapPos1.getScene().getWindow().hide();
 	}
 

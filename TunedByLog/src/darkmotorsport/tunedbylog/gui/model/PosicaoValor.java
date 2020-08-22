@@ -9,11 +9,10 @@ public class PosicaoValor {
 
 	private float map;
 	private int posicao;
-	
-	
-	public static Map<Float,Integer> getMapaPosicoesValores() {
-		
-		Map<Float,Integer> posicoesValores = new HashMap<Float,Integer>();
+
+	public static Map<Float, Integer> getMapaPosicoesValores() {
+
+		Map<Float, Integer> posicoesValores = new HashMap<Float, Integer>();
 		posicoesValores.put(MAP_m_0_90, POS_map_m_0_90);
 		posicoesValores.put(MAP_m_0_85, POS_map_m_0_85);
 		posicoesValores.put(MAP_m_0_80, POS_map_m_0_80);
@@ -58,8 +57,6 @@ public class PosicaoValor {
 		return posicoesValores;
 
 	}
-	
-	
 
 	public static List<PosicaoValor> getListaPosicoesValores() {
 		List<PosicaoValor> posicoesValores = new ArrayList<PosicaoValor>();

@@ -21,7 +21,7 @@ public class Calculador {
 
 		Collections.sort(listaValores);
 
-		//Truncamento baseado em porcentagem
+		// Truncamento baseado em porcentagem
 		if (isTruncar) {
 			int size = listaValores.size();
 			int qtdTruncado = (int) (size * (porcentagemTruncada / 100.0f));
@@ -30,8 +30,8 @@ public class Calculador {
 		}
 
 		Map<Float, Float> mapaDeOcorrencias = new HashMap<Float, Float>();
-		
-		//Media ponderada
+
+		// Media ponderada
 		for (Float sonda : listaValores) {
 			Float qtdOcorrencias = mapaDeOcorrencias.get(sonda);
 			if (qtdOcorrencias == null) {
@@ -61,6 +61,5 @@ public class Calculador {
 		valorArredondado = media.setScale(3, BigDecimal.ROUND_HALF_EVEN);
 		return valorArredondado;
 	}
-
 
 }

@@ -7,9 +7,6 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class DadoTabelaMap {
 
-	
-	
-
 	private SimpleStringProperty descricaoLinha;
 	private SimpleStringProperty map_m_0_90;
 	private SimpleStringProperty map_m_0_85;
@@ -51,27 +48,21 @@ public class DadoTabelaMap {
 	private SimpleStringProperty map_1_80;
 	private SimpleStringProperty map_1_90;
 	private SimpleStringProperty map_2_00;
-	
+
 	private List<String> listaValores = new ArrayList<String>();
 
 	public DadoTabelaMap() {
 		super();
 	}
-	
-	
+
 	public DadoTabelaMap(String descricaoLinha) {
 		super();
 		this.descricaoLinha = new SimpleStringProperty(descricaoLinha);
 	}
 
-	public DadoTabelaMap(String descricaoLinha, String map_m_0_90, String map_m_0_85, String map_m_0_80,
-			String map_m_0_75, String map_m_0_70, String map_m_0_65, String map_m_0_60, String map_m_0_55,
-			String map_m_0_50, String map_m_0_45, String map_m_0_40, String map_m_0_35, String map_m_0_30,
-			String map_m_0_25, String map_m_0_20, String map_m_0_15, String map_m_0_10, String map_m_0_05,
-			String map_0_00, String map_0_05, String map_0_10, String map_0_20, String map_0_30, String map_0_40,
-			String map_0_50, String map_0_60, String map_0_70, String map_0_80, String map_0_90, String map_1_00,
-			String map_1_10, String map_1_20, String map_1_30, String map_1_40, String map_1_50, String map_1_60,
-			String map_1_70, String map_1_80, String map_1_90, String map_2_00) {
+	public DadoTabelaMap(String descricaoLinha, String map_m_0_90, String map_m_0_85, String map_m_0_80, String map_m_0_75, String map_m_0_70, String map_m_0_65, String map_m_0_60, String map_m_0_55, String map_m_0_50, String map_m_0_45, String map_m_0_40, String map_m_0_35, String map_m_0_30,
+			String map_m_0_25, String map_m_0_20, String map_m_0_15, String map_m_0_10, String map_m_0_05, String map_0_00, String map_0_05, String map_0_10, String map_0_20, String map_0_30, String map_0_40, String map_0_50, String map_0_60, String map_0_70, String map_0_80, String map_0_90,
+			String map_1_00, String map_1_10, String map_1_20, String map_1_30, String map_1_40, String map_1_50, String map_1_60, String map_1_70, String map_1_80, String map_1_90, String map_2_00) {
 		super();
 		this.descricaoLinha = new SimpleStringProperty(descricaoLinha);
 		this.map_m_0_90 = new SimpleStringProperty(map_m_0_90);
@@ -115,9 +106,6 @@ public class DadoTabelaMap {
 		this.map_1_90 = new SimpleStringProperty(map_1_90);
 		this.map_2_00 = new SimpleStringProperty(map_2_00);
 	}
-	
-	
-	
 
 	public SimpleStringProperty getDescricaoLinha() {
 		return descricaoLinha;
@@ -439,10 +427,10 @@ public class DadoTabelaMap {
 		this.map_2_00 = map_2_00;
 	}
 
-	public List<String> getValoresVariavel(){
+	public List<String> getValoresVariavel() {
 		return this.listaValores;
 	}
-	
+
 	public List<String> getValores() {
 		listaValores = new ArrayList<String>();
 		listaValores.add(getMap_m_0_90().getValue());

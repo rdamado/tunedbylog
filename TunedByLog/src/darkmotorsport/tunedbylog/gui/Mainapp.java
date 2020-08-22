@@ -4,7 +4,6 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.prefs.Preferences;
@@ -13,8 +12,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import org.apache.maven.model.Model;
-import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
+//import org.apache.maven.model.Model;
+//import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 
 import darkmotorsport.tunedbylog.gui.controller.PaginaInicialAbaRPM;
@@ -43,27 +42,28 @@ public class Mainapp extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws FileNotFoundException, IOException, XmlPullParserException {
-		
-		MavenXpp3Reader reader = new MavenXpp3Reader();
-        Model model = reader.read(new FileReader("pom.xml"));
-		
+
+//		MavenXpp3Reader reader = new MavenXpp3Reader();
+//        Model model = reader.read(new FileReader("pom.xml"));
+
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Tuned by Log (TbyL) - rian.diego@gmail.com - "+ model.getVersion());
+//		this.primaryStage.setTitle("Tuned by Log (TbyL) - rian.diego@gmail.com - "+ model.getVersion());
+		this.primaryStage.setTitle("Tuned by Log (TbyL) - rian.diego@gmail.com - " + "3.1.0");
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		int width = gd.getDisplayMode().getWidth();
 		int height = gd.getDisplayMode().getHeight();
-		
+
 //		this.primaryStage.setWidth(width/1.5);
 //		this.primaryStage.setHeight(height/1.5);
-		
+
 //		this.primaryStage.setWidth(1024);
 //		this.primaryStage.setHeight(768);
-		
+
 //		this.primaryStage.setMaximized(true);
 
 //		initRootLayout(primaryStage);
 //		showTabelaDadosView(primaryStage);
-		
+
 		paginaInicial(primaryStage);
 
 	}
@@ -78,7 +78,7 @@ public class Mainapp extends Application {
 			loader.setLocation(Mainapp.class.getResource("/darkmotorsport/tunedbylog/gui/view/Inicio.fxml"));
 			rootLayout = (BorderPane) loader.load();
 			Scene scene = new Scene(rootLayout);
-			
+
 			rootLayout.setPrefWidth(1024);
 			rootLayout.setPrefHeight(768);
 
@@ -87,19 +87,17 @@ public class Mainapp extends Application {
 
 			primaryStage.setScene(scene);
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-			
+
 //			primaryStage.setFullScreen(true);
 //			(gd.getDisplayMode().getWidth());
 //			primaryStage.setHeight(gd.getDisplayMode().getWidth());
 			primaryStage.show();
-			
-			
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void paginaInicial(Stage stage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -108,32 +106,29 @@ public class Mainapp extends Application {
 			this.rootLayout = ((BorderPane) loader.load());
 			Scene scene = new Scene(rootLayout);
 			tabelaContr = loader.getController();
-			
+
 //			scene.getStylesheets().add(getClass().getResource("/darkmotorsport/tunedbylog/gui/application.css").toExternalForm());
-			
-			
+
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 			int width = gd.getDisplayMode().getWidth();
 			int height = gd.getDisplayMode().getHeight();
-			
+
 //			rootLayout.setPrefWidth(width/3);
 //			rootLayout.setPrefHeight(height/3);
-			
+
 			rootLayout.setPrefWidth(1024);
 			rootLayout.setPrefHeight(768);
-			
+
 			tabelaContr = loader.getController();
 			tabelaContr.setMainapp(this);
-			
+
 			primaryStage.setScene(scene);
-			
+
 //			primaryStage.setFullScreen(true);
 //			(gd.getDisplayMode().getWidth());
 //			primaryStage.setHeight(gd.getDisplayMode().getWidth());
 			primaryStage.show();
-			
-			
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -141,7 +136,8 @@ public class Mainapp extends Application {
 
 	/**
 	 * Mostra o person overview dentro do root layout.
-	 * @param primaryStage2 
+	 * 
+	 * @param primaryStage2
 	 */
 	public void showTabelaDadosView(Stage primaryStage2) {
 		try {
@@ -149,9 +145,9 @@ public class Mainapp extends Application {
 			loader.setLocation(Mainapp.class.getResource("/darkmotorsport/tunedbylog/gui/view/TabelaDadosView.fxml"));
 			tabelaContr = loader.getController();
 			AnchorPane personOverview = (AnchorPane) loader.load();
-			
+
 			rootLayout.setLeft(personOverview);
-			
+
 //				controller.setMainApp(this);
 
 		} catch (IOException e) {
@@ -220,8 +216,6 @@ public class Mainapp extends Application {
 			ConfiguracoesWrapper wrapper = (ConfiguracoesWrapper) um.unmarshal(file);
 			tabelaContr.carregarConfiguracoes(wrapper);
 			tabelaContr.lblCaminhoArquivoConfiguracao.setText(file.getAbsolutePath());
-			
-
 
 		} catch (Exception e) { // catches ANY exception
 			e.printStackTrace();

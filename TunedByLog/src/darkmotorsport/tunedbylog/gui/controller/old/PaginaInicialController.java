@@ -17,9 +17,9 @@ import darkmotorsport.tunedbylog.gui.Mainapp;
 import darkmotorsport.tunedbylog.gui.calc.Calculador;
 import darkmotorsport.tunedbylog.gui.model.AlvoSondaLambda;
 import darkmotorsport.tunedbylog.gui.model.ArquivoLog;
+import darkmotorsport.tunedbylog.gui.model.CellEditavel;
 import darkmotorsport.tunedbylog.gui.model.ConfiguracoesWrapper;
 import darkmotorsport.tunedbylog.gui.model.DadoTabelaMap;
-import darkmotorsport.tunedbylog.gui.model.CellEditavel;
 import darkmotorsport.tunedbylog.gui.model.PosicaoValor;
 import darkmotorsport.tunedbylog.xml.itens.DataCanal;
 import darkmotorsport.tunedbylog.xml.itens.Log;
@@ -56,13 +56,10 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 
 	File file = null;
 	Calculador calc = new Calculador();
-	
-	Stage stage= null;
-	
+
+	Stage stage = null;
+
 	private Mainapp mainapp;
-	
-	
-	
 
 	public Stage getStage() {
 		return stage;
@@ -152,7 +149,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 					}
 				}
 			}
-			
+
 			removerNullMapaCorrecaoSonda();
 			removerNullMapaWideband();
 			configurarTabelaSondaMedia();
@@ -212,10 +209,9 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 		wideMap_map_1_90.clear();
 		wideMap_map_2_00.clear();
 	}
-	
-	
+
 	private void limparListasValoresCorrecaoSonda() {
-		correcaoSondaLinha = getCorrecaoSondaLinhaInicial(); 
+		correcaoSondaLinha = getCorrecaoSondaLinhaInicial();
 		correcaoSondaMap_map_m_0_90.clear();
 		correcaoSondaMap_map_m_0_85.clear();
 		correcaoSondaMap_map_m_0_80.clear();
@@ -272,11 +268,10 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 			}
 
 		}
-		
-		
+
 		for (int k = 0; k < listaDados.size(); k++) {
 			if (listaDados.get(k).getCanal().getId() == SONDA_CORRECAO) {
-				IS_CORRRECAO_ATIVA  = true;
+				IS_CORRRECAO_ATIVA = true;
 				break;
 			}
 		}
@@ -489,8 +484,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 		correcaoSondaMap_map_1_90.removeAll(Collections.singleton(null));
 		correcaoSondaMap_map_2_00.removeAll(Collections.singleton(null));
 	}
-	
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void configurarGrafico() {
 
@@ -503,8 +497,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 		seriesCorrigido.setName("Editável(mS)");
 
 		for (int i = 0; i < getListaMap().size(); i++) {
-			series.getData().add(new XYChart.Data(getListaMap().get(i).toString(),
-					new BigDecimal(mapaMs.getValores().get(i).replace(',', '.'))));
+			series.getData().add(new XYChart.Data(getListaMap().get(i).toString(), new BigDecimal(mapaMs.getValores().get(i).replace(',', '.'))));
 			String string = mapaMsCorrigidoEditado.getValores().get(i);
 			if (string != "-") {
 				BigDecimal bigDecimal = new BigDecimal(string.replace(',', '.'));
@@ -579,13 +572,13 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 			BigDecimal bdLambdaAlvo = new BigDecimal(valoresLambdaAlvo.get(i).replace(",", "."));
 			BigDecimal bdSondaMedia = new BigDecimal(valoresSondaMedia.get(i).replace(",", "."));
 			BigDecimal bdCorrecaoSondaMedia = new BigDecimal(valoresCorrecaoSondaMedia.get(i).replace(",", "."));
-			
+
 //			BigDecimal somaUm = bdCorrecaoSondaMedia.add(BigDecimal.ONE);
 			BigDecimal divideCem = bdCorrecaoSondaMedia.divide(new BigDecimal("100"), RoundingMode.HALF_EVEN);
 			BigDecimal somaUm = divideCem.add(BigDecimal.ONE);
 			BigDecimal multiplica = bdSondaMedia.multiply(somaUm);
 			BigDecimal bdSodaMediaSemCorrecao = multiplica;
-			
+
 //			correcao.add(bdSondaMedia.divide(bdLambdaAlvo, RoundingMode.HALF_EVEN).toString());
 			correcao.add(bdSodaMediaSemCorrecao.divide(bdLambdaAlvo, RoundingMode.HALF_EVEN).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
 		}
@@ -647,7 +640,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 
 		sondaMedia = dadoTabelaMap;
 	}
-	
+
 	private void configurarTabelaCorrecaoMedia() {
 		DadoTabelaMap dadoTabelaMap = listaMap.get(POSICAO_CORRECAO_MEDIA);
 //		DadoTabelaMap dadoTabelaMap = sondaMedia;
@@ -809,12 +802,10 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 //	}
 
 	private Float getValorCanal(List<DataCanal> listaDados, int posicao, Integer canal) {
-		
-		
-		if(canal == SONDA_CORRECAO && !IS_CORRRECAO_ATIVA) {
+
+		if (canal == SONDA_CORRECAO && !IS_CORRRECAO_ATIVA) {
 			return null;
 		}
-		
 
 		float vlrTpsMinimo = Float.parseFloat(tpsMinimo.getText());
 		float vlrTpsMaximo = Float.parseFloat(tpsMaximo.getText());
@@ -822,8 +813,8 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 		float vlrTempMotorMaximo = Float.parseFloat(tempMotorMaximo.getText());
 		float vlrSondaMinimo = Float.parseFloat(sondaMinimo.getText());
 		float vlrSondaMaximo = Float.parseFloat(sondaMaximo.getText());
-		
-		Float valorSonda =null;
+
+		Float valorSonda = null;
 
 		boolean filtroOK = true;
 		boolean flagTPS = true;
@@ -857,17 +848,17 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 					if (!(valorSonda >= vlrSondaMinimo && valorSonda <= vlrSondaMaximo)) {
 						widebandFiltroOk = false;
 						valorSonda = null;
-					} 
+					}
 				}
 			}
 		}
-		
-		if(canal == WIDEBAND) {
+
+		if (canal == WIDEBAND) {
 			return valorSonda;
 		}
-		
+
 		valorSonda = null;
-		
+
 		if (widebandFiltroOk && filtroOK) {
 			for (int k = 0; k < listaDados.size(); k++) {
 				if (listaDados.get(k).getCanal().getId() == canal) {
@@ -899,7 +890,8 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 	public Label lblCaminhoArquivoConfiguracao;
 	@FXML
 	ImageView imgDoacao;
-	@FXML VBox vboxTela;
+	@FXML
+	VBox vboxTela;
 
 	public PaginaInicialController() {
 
@@ -908,13 +900,12 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@FXML
 	private void initialize() {
-		
+
 //		
 //		tabelaMap.prefHeightProperty().bind(stage.heightProperty());
 //		tabelaMap.prefWidthProperty().bind(stage.widthProperty());
-		
+
 		VBox.setVgrow(lineChartInjecao, Priority.ALWAYS);
-		
 
 		percTruncada.textProperty().addListener(new ChangeListener<String>() {
 			@Override
@@ -928,8 +919,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 				}
 			}
 		});
-		
-		
+
 		tpsMinimo.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -942,7 +932,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 				}
 			}
 		});
-		
+
 		tpsMaximo.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -955,7 +945,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 				}
 			}
 		});
-		
+
 		tempMotorMinimo.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -968,7 +958,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 				}
 			}
 		});
-		
+
 		tempMotorMaximo.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -981,7 +971,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 				}
 			}
 		});
-		
+
 		sondaMinimo.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -994,7 +984,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 				}
 			}
 		});
-		
+
 		sondaMaximo.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -1007,7 +997,6 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 				}
 			}
 		});
-		
 
 		imgDoacao.setOnMouseClicked((MouseEvent e) -> {
 			try {
@@ -1143,8 +1132,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 			listaValoresSonda.add(null);
 		}
 		for (AlvoSondaLambda alvo : lista) {
-			listaValoresSonda.set(PosicaoValor.getMapaPosicoesValores().get(alvo.getValorMap()),
-					alvo.getValorLambda().toString());
+			listaValoresSonda.set(PosicaoValor.getMapaPosicoesValores().get(alvo.getValorMap()), alvo.getValorLambda().toString());
 		}
 
 		List<Float> listaMaps = new ArrayList<Float>();
@@ -1193,14 +1181,10 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 
 		MathContext mc = new MathContext(15, RoundingMode.HALF_UP);
 
-		BigDecimal acres1 = (alvoSonda2.subtract(alvoSonda1)).divide(divisor1, mc).setScale(2,
-				BigDecimal.ROUND_HALF_EVEN);
-		BigDecimal acres2 = (alvoSonda3.subtract(alvoSonda2)).divide(divisor2, mc).setScale(2,
-				BigDecimal.ROUND_HALF_EVEN);
-		BigDecimal acres3 = (alvoSonda4.subtract(alvoSonda3)).divide(divisor3, mc).setScale(2,
-				BigDecimal.ROUND_HALF_EVEN);
-		BigDecimal acres4 = (alvoSonda5.subtract(alvoSonda4)).divide(divisor4, mc).setScale(2,
-				BigDecimal.ROUND_HALF_EVEN);
+		BigDecimal acres1 = (alvoSonda2.subtract(alvoSonda1)).divide(divisor1, mc).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+		BigDecimal acres2 = (alvoSonda3.subtract(alvoSonda2)).divide(divisor2, mc).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+		BigDecimal acres3 = (alvoSonda4.subtract(alvoSonda3)).divide(divisor3, mc).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+		BigDecimal acres4 = (alvoSonda5.subtract(alvoSonda4)).divide(divisor4, mc).setScale(2, BigDecimal.ROUND_HALF_EVEN);
 
 		interpolarValores(listaValoresSonda, posMap1, divisor1, acres1);
 		interpolarValores(listaValoresSonda, posMap2, divisor2, acres2);
@@ -1212,8 +1196,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 
 	}
 
-	private void interpolarValores(List<String> listaValoresSonda, BigDecimal posMap1, BigDecimal divisor1,
-			BigDecimal acres1) {
+	private void interpolarValores(List<String> listaValoresSonda, BigDecimal posMap1, BigDecimal divisor1, BigDecimal acres1) {
 
 		MathContext mc = new MathContext(15, RoundingMode.HALF_UP);
 		for (int i = 1; i < divisor1.intValue(); i++) {
@@ -1225,8 +1208,7 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 				primeiroValor = new BigDecimal(listaValoresSonda.get(posMap1.intValue() + (i - 1)));
 			}
 
-			listaValoresSonda.set(posMap1.intValue() + i,
-					primeiroValor.add(acres1, mc).setScale(2, BigDecimal.ROUND_HALF_EVEN).floatValue() + "");
+			listaValoresSonda.set(posMap1.intValue() + i, primeiroValor.add(acres1, mc).setScale(2, BigDecimal.ROUND_HALF_EVEN).floatValue() + "");
 
 		}
 	}
@@ -1260,8 +1242,8 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 		ObservableList<TablePosition> selectedCells = tabelaMap.getSelectionModel().getSelectedCells();
 
 		MathContext mc = new MathContext(15, RoundingMode.HALF_UP);
-		
-		if(!(selectedCells != null && selectedCells.size() > 2) ) {
+
+		if (!(selectedCells != null && selectedCells.size() > 2)) {
 			apresentarAlertaAviso("Selecione três ou mais células na tabela para interpolar!");
 			return;
 		}
@@ -1302,27 +1284,23 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 		int pos2 = ultimo;
 		int intervalo = pos2 - pos1;
 
-		String primeiroValor = (String)tablePosition1.getTableColumn().getCellObservableValue(rowIndex).getValue();
-		String segundoValor = (String)tablePosition2.getTableColumn().getCellObservableValue(rowIndex).getValue();
-		
-		if(primeiroValor.contains("-") ||segundoValor.contains("-")) {
+		String primeiroValor = (String) tablePosition1.getTableColumn().getCellObservableValue(rowIndex).getValue();
+		String segundoValor = (String) tablePosition2.getTableColumn().getCellObservableValue(rowIndex).getValue();
+
+		if (primeiroValor.contains("-") || segundoValor.contains("-")) {
 			apresentarAlertaAviso("A primeira e a última célula devem conter valor númerico!");
 			return;
 		}
-		
-		BigDecimal valor1 = getBigDecimalString(
-				(String) primeiroValor);
-		BigDecimal valor2 = getBigDecimalString(
-				(String) segundoValor);
 
-		BigDecimal acres = (valor2.subtract(valor1)).divide(new BigDecimal(intervalo), mc).setScale(3,
-				BigDecimal.ROUND_HALF_EVEN);
+		BigDecimal valor1 = getBigDecimalString((String) primeiroValor);
+		BigDecimal valor2 = getBigDecimalString((String) segundoValor);
+
+		BigDecimal acres = (valor2.subtract(valor1)).divide(new BigDecimal(intervalo), mc).setScale(3, BigDecimal.ROUND_HALF_EVEN);
 
 		List<String> valores = mapaMsCorrigidoEditado.getValores();
 
 		for (int i = 1; i < intervalo; i++) {
-			valores.set((pos1 - 1) + i, getBigDecimalString(valores.get((pos1 - 1) + (i - 1))).add(acres, mc)
-					.setScale(3, BigDecimal.ROUND_HALF_EVEN).toString());
+			valores.set((pos1 - 1) + i, getBigDecimalString(valores.get((pos1 - 1) + (i - 1))).add(acres, mc).setScale(3, BigDecimal.ROUND_HALF_EVEN).toString());
 		}
 
 		mapaMsCorrigidoEditado.setValores(valores);
@@ -1423,7 +1401,6 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 			e1.printStackTrace();
 		}
 	}
-	
 
 	@FXML
 	public void doEditarSondaAlvo() {
@@ -1514,6 +1491,5 @@ public class PaginaInicialController extends SuperTabelaDadosController {
 		alert.setContentText("Desenvolvido por Rian Diego - rian.diego@gmail.com");
 		alert.showAndWait();
 	}
-
 
 }

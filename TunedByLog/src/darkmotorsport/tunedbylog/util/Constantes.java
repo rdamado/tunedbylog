@@ -6,7 +6,7 @@ public class Constantes {
 	public static Integer WIDEBAND_DIGITAL = 113;
 	public static Integer WIDEBAND_ANALOGICO = 9;
 	public static Integer BANCADA_A_TEMPO_INJECAO = 3;
-	
+
 	public static Integer TEMPERATURA_AR = 17;
 	public static Integer PRESSAO_COMB = 24;
 	public static Integer PRESSAO_OLEO = 23;

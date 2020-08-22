@@ -28,8 +28,7 @@ import darkmotorsport.tunedbylog.xml.itens.LogArquivoCanal;
 import darkmotorsport.tunedbylog.xml.itens.Tag;
 
 public class ArquivoLog {
-	
-	
+
 	public static Log logcarregado;
 
 	public Log abrirArquivoLog(File arq) throws Throwable {
@@ -80,11 +79,11 @@ public class ArquivoLog {
 		for (LogArquivoCanal arqCanal : logArq.getCanais()) {
 			DataCanal dataCanal = new DataCanal(arqCanal.getConfiguracaoCanal(), arqCanal.getValores());
 			lista.add(dataCanal);
-			
-			if(dataCanal.getCanal().getId() == Constantes.SONDA_CORRECAO) {
+
+			if (dataCanal.getCanal().getId() == Constantes.SONDA_CORRECAO) {
 				log.autoCorrecaoAtivada = true;
 			}
-			
+
 		}
 		log.setListaDados(lista);
 		logcarregado = log;
@@ -147,8 +146,7 @@ public class ArquivoLog {
 
 		Object arqCanal = null;
 		LogArquivo logArq = new LogArquivo();
-		BufferedWriter writer = new BufferedWriter(
-				new OutputStreamWriter((OutputStream) new FileOutputStream(arq), "UTF-8"));
+		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter((OutputStream) new FileOutputStream(arq), "UTF-8"));
 		try {
 			logArq.setInformacao(log.getInformacao());
 			logArq.setTags(log.getListaTags().toArray(new Tag[log.getListaTags().size()]));
@@ -191,8 +189,7 @@ public class ArquivoLog {
 
 	private void configurarAlias(XStream xstream) {
 		XStream.setupDefaultSecurity((XStream) xstream);
-		xstream.allowTypes(new Class[] { LogArquivo.class, LogArquivoCanal.class, Tag.class, ControleLargadaItem.class,
-				ControleTracaoMarcha.class, ControleTracaoItem.class
+		xstream.allowTypes(new Class[] { LogArquivo.class, LogArquivoCanal.class, Tag.class, ControleLargadaItem.class, ControleTracaoMarcha.class, ControleTracaoItem.class
 
 		});
 		xstream.alias("log", LogArquivo.class);

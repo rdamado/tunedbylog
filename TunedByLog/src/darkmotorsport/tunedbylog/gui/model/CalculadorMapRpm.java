@@ -34,7 +34,7 @@ public class CalculadorMapRpm {
 		}
 	}
 
-	//TODO refatorar nome desse metodo
+	// TODO refatorar nome desse metodo
 	private void addValorSonda(List<LinhaMapRpm> linhas, BigDecimal map, BigDecimal rpm, Float valorSonda, Float valorCanalBancada_A_TI, Float valorAutoCorrecaoSonda, Float valorTempAr, Float valorPressaoComb, Float valorPressaoOleo, Float valorBateriaTensao, Float valorTemperaturaMotor) {
 		// TODO precisao MAP e RPM
 		BigDecimal precisaoMAP_1 = new BigDecimal(0.02);
@@ -47,11 +47,11 @@ public class CalculadorMapRpm {
 		for (LinhaMapRpm linha : linhas) {
 			BigDecimal map2 = linha.getMap();
 
-		//	if (map.compareTo(precisaoMap_2) == -1) {
-		//		gapMAP = precisaoMAP_1;
-		//	} else {
-				gapMAP = precisaoMap_2;
-		//	}
+			// if (map.compareTo(precisaoMap_2) == -1) {
+			// gapMAP = precisaoMAP_1;
+			// } else {
+			gapMAP = precisaoMap_2;
+			// }
 
 			BigDecimal minimoMAP = map.subtract(gapMAP);
 			BigDecimal maximoMAP = map.add(gapMAP);
@@ -64,12 +64,12 @@ public class CalculadorMapRpm {
 			for (CelulaMapRpm celula : listaCelulas) {
 				BigDecimal rpm2 = celula.getRpm();
 
-				//if (rpm.compareTo(new BigDecimal(2000)) == -1) {
-				//	gapRPM = precisaoRPM_1;
-				//} else {
-					gapRPM = precisaoRPM_2;
+				// if (rpm.compareTo(new BigDecimal(2000)) == -1) {
+				// gapRPM = precisaoRPM_1;
+				// } else {
+				gapRPM = precisaoRPM_2;
 
-				//}
+				// }
 				BigDecimal minimo = rpm.subtract(gapRPM);
 				BigDecimal maximo = rpm.add(gapRPM);
 
@@ -79,23 +79,23 @@ public class CalculadorMapRpm {
 					if (valorCanalBancada_A_TI != null) {
 						celula.getTempoInjecao().add(valorCanalBancada_A_TI);
 					}
-					
+
 					if (valorAutoCorrecaoSonda != null) {
 						celula.getValoresAutoCorrecao().add(valorAutoCorrecaoSonda);
 					}
-					
+
 					if (valorTempAr != null) {
 						celula.getValoresTempAr().add(valorTempAr);
 					}
-					
+
 					if (valorPressaoComb != null) {
 						celula.getValoresPressaoComb().add(valorPressaoComb);
 					}
-					
+
 					if (valorPressaoOleo != null) {
 						celula.getValoresPressaoOleo().add(valorPressaoOleo);
 					}
-					
+
 					if (valorBateriaTensao != null) {
 						celula.getValoresBateriaTensao().add(valorBateriaTensao);
 					}
@@ -121,8 +121,7 @@ public class CalculadorMapRpm {
 		BigDecimal rpmFator = new BigDecimal(250);
 
 		BigDecimal mapPositiva_0_05 = new BigDecimal(0.05);
-		
-		
+
 		BigDecimal rpm_2000 = new BigDecimal(2000);
 		BigDecimal bd_100 = new BigDecimal(100);
 		int int_200 = 250;
@@ -218,24 +217,29 @@ public class CalculadorMapRpm {
 					BigDecimal valorMPTruncTempoInjecao = calc.getValorMediaPonderadaTruncada(celula.getTempoInjecao(), "10", true);
 					celula.setTempoInjecaoMedia(valorMPTruncTempoInjecao);
 
-					BigDecimal valorMPTruncAutoCorrecao = calc.getValorMediaPonderadaTruncada(celula.getValoresAutoCorrecao(), "10", true).setScale(0, BigDecimal.ROUND_HALF_EVEN);;
+					BigDecimal valorMPTruncAutoCorrecao = calc.getValorMediaPonderadaTruncada(celula.getValoresAutoCorrecao(), "10", true).setScale(0, BigDecimal.ROUND_HALF_EVEN);
+					;
 					celula.setAutoCorrecao(valorMPTruncAutoCorrecao);
-					
-					BigDecimal valorvalorTempAr = calc.getValorMediaPonderadaTruncada(celula.getValoresTempAr(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);;
+
+					BigDecimal valorvalorTempAr = calc.getValorMediaPonderadaTruncada(celula.getValoresTempAr(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);
+					;
 					celula.setValorTempAr(valorvalorTempAr);
-					
-					BigDecimal valorPressaoComb = calc.getValorMediaPonderadaTruncada(celula.getValoresPressaoComb(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);;
+
+					BigDecimal valorPressaoComb = calc.getValorMediaPonderadaTruncada(celula.getValoresPressaoComb(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);
+					;
 					celula.setValorPressaoComb(valorPressaoComb);
-					
-					BigDecimal valorPressaoOleo = calc.getValorMediaPonderadaTruncada(celula.getValoresPressaoOleo(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);;
+
+					BigDecimal valorPressaoOleo = calc.getValorMediaPonderadaTruncada(celula.getValoresPressaoOleo(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);
+					;
 					celula.setValorPressaoOleo(valorPressaoOleo);
-					
-					BigDecimal valorBateriaTensao = calc.getValorMediaPonderadaTruncada(celula.getValoresBateriaTensao(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);;
+
+					BigDecimal valorBateriaTensao = calc.getValorMediaPonderadaTruncada(celula.getValoresBateriaTensao(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);
+					;
 					celula.setValorBateriaTensao(valorBateriaTensao);
-					
-					BigDecimal valorTemperaturaMotor = calc.getValorMediaPonderadaTruncada(celula.getValoresTemperaturaMotor(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);;
+
+					BigDecimal valorTemperaturaMotor = calc.getValorMediaPonderadaTruncada(celula.getValoresTemperaturaMotor(), "10", true).setScale(1, BigDecimal.ROUND_HALF_EVEN);
+					;
 					celula.setValorTemperaturaMotor(valorTemperaturaMotor);
-					
 
 					BigDecimal sondaAlvo = celula.getSondaAlvo();
 
@@ -250,12 +254,10 @@ public class CalculadorMapRpm {
 						BigDecimal cem = new BigDecimal(100);
 						BigDecimal menos1 = new BigDecimal(-1);
 						correcao = correcao.subtract(BigDecimal.ONE, mc).multiply(menos1).multiply(cem, mc).setScale(0, BigDecimal.ROUND_HALF_EVEN);
-						
-						
-						//Add autocorrecao
+
+						// Add autocorrecao
 						correcao = correcao.add(valorMPTruncAutoCorrecao);
-						
-						
+
 						celula.setCorrecao(correcao);
 
 						if (valorMPTruncTempoInjecao.compareTo(BigDecimal.ZERO) != 0) {
@@ -305,32 +307,28 @@ public class CalculadorMapRpm {
 
 		UtilData utilData = new UtilData();
 		FiltroCanal filtro = new FiltroCanal();
-		
-		
-		
+
 		filtro.setStrTpsMinimo(PaginaInicialAbaRPM.filtro.getStrTpsMinimo());
 		filtro.setStrTpsMaximo(PaginaInicialAbaRPM.filtro.getStrTpsMaximo());
 		filtro.setStrTempMotorMinimo(PaginaInicialAbaRPM.filtro.getStrTempMotorMinimo());
 		filtro.setStrTempMotorMaximo(PaginaInicialAbaRPM.filtro.getStrTempMotorMaximo());
 		filtro.setStrSondaMinimo(PaginaInicialAbaRPM.filtro.getStrSondaMinimo());
 		filtro.setStrSondaMaximo(PaginaInicialAbaRPM.filtro.getStrSondaMaximo());
-		
-		
+
 		Float valorCanalWideband = utilData.getValorCanal(listaDados, j, Constantes.WIDEBAND, filtro);
 		Float valorCanalRPM = utilData.getValorCanal(listaDados, j, Constantes.RPM, filtro);
 		Float valorCanalBancada_A_TI = utilData.getValorCanal(listaDados, j, Constantes.BANCADA_A_TEMPO_INJECAO, filtro);
 		Float valorAutoCorrecaoSonda = utilData.getValorCanal(listaDados, j, Constantes.SONDA_CORRECAO, filtro);
 
-		Float valorTempAr= utilData.getValorCanal(listaDados, j, Constantes.TEMPERATURA_AR, filtro);
+		Float valorTempAr = utilData.getValorCanal(listaDados, j, Constantes.TEMPERATURA_AR, filtro);
 		Float valorPressaoComb = utilData.getValorCanal(listaDados, j, Constantes.PRESSAO_COMB, filtro);
 		Float valorPressaoOleo = utilData.getValorCanal(listaDados, j, Constantes.PRESSAO_OLEO, filtro);
 		Float valorBateriaTensao = utilData.getValorCanal(listaDados, j, Constantes.BATERIA_TENSAO, filtro);
-		
+
 		Float valorTemperaturaMotor = utilData.getValorCanal(listaDados, j, Constantes.TEMP_MOTOR, filtro);
-		
-		
+
 		if (valorCanalWideband != null && valorCanalRPM != null) {
-			this.addValorSonda(linhas, new BigDecimal(valores[j]), new BigDecimal(valorCanalRPM.doubleValue()), valorCanalWideband, valorCanalBancada_A_TI,valorAutoCorrecaoSonda,valorTempAr,valorPressaoComb,valorPressaoOleo,valorBateriaTensao,valorTemperaturaMotor);
+			this.addValorSonda(linhas, new BigDecimal(valores[j]), new BigDecimal(valorCanalRPM.doubleValue()), valorCanalWideband, valorCanalBancada_A_TI, valorAutoCorrecaoSonda, valorTempAr, valorPressaoComb, valorPressaoOleo, valorBateriaTensao, valorTemperaturaMotor);
 		}
 
 	}

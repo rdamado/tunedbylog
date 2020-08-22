@@ -118,7 +118,7 @@ public class CellEditavel extends TableCell<DadoTabelaMap, String> {
 				}
 			}
 		});
-		
+
 		textField.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -152,14 +152,13 @@ public class CellEditavel extends TableCell<DadoTabelaMap, String> {
 
 			private void comitar() {
 				commitEdit(textField.getText());
-				if(getTableRow().getIndex() == 2 ||getTableRow().getIndex() == 0) {
+				if (getTableRow().getIndex() == 2 || getTableRow().getIndex() == 0) {
 					Mainapp.tabelaContr.configurarGrafico();
 				}
 			}
 
 		});
-		
-		
+
 	}
 
 	private String getString() {

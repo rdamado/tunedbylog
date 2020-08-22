@@ -22,9 +22,7 @@ public class Canal {
 	public Canal() {
 	}
 
-	public Canal(int id, boolean habilitado, String descricao, String unidadeMedida, String formato, Color cor,
-			float espessuraLinha, boolean valorInteiro, float rangeMin, float rangeMax, boolean autoRangeMin,
-			boolean autoRangeMax, float fatorMin, float fatorMax, Float desconectado) {
+	public Canal(int id, boolean habilitado, String descricao, String unidadeMedida, String formato, Color cor, float espessuraLinha, boolean valorInteiro, float rangeMin, float rangeMax, boolean autoRangeMin, boolean autoRangeMax, float fatorMin, float fatorMax, Float desconectado) {
 		this.id = id;
 		this.habilitado = habilitado;
 		this.descricao = descricao;
