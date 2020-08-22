@@ -3,6 +3,8 @@ package darkmotorsport.tunedbylog.gui;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.prefs.Preferences;
@@ -10,6 +12,10 @@ import java.util.prefs.Preferences;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+
+import org.apache.maven.model.Model;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
+import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 
 import darkmotorsport.tunedbylog.gui.controller.PaginaInicialAbaRPM;
 import darkmotorsport.tunedbylog.gui.model.AlvoSondaLambda;
@@ -23,6 +29,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+@SuppressWarnings("restriction")
 public class Mainapp extends Application {
 
 	private Stage primaryStage;
@@ -35,9 +42,13 @@ public class Mainapp extends Application {
 	}
 
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage) throws FileNotFoundException, IOException, XmlPullParserException {
+		
+		MavenXpp3Reader reader = new MavenXpp3Reader();
+        Model model = reader.read(new FileReader("pom.xml"));
+		
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Tuned by Log (TbyL) - rian.diego@gmail.com - V:3.0.1");
+		this.primaryStage.setTitle("Tuned by Log (TbyL) - rian.diego@gmail.com - "+ model.getVersion());
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		int width = gd.getDisplayMode().getWidth();
 		int height = gd.getDisplayMode().getHeight();

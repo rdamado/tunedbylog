@@ -3,10 +3,13 @@
 	<groupId>TunedByLog</groupId>
 	<artifactId>TunedByLog</artifactId>
 	<version>3.1.0-SNAPSHOT</version>
-
+	
+	<properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
 
 	<dependencies>
-
 		<!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
@@ -14,14 +17,28 @@
 			<version>1.4.10</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-csv</artifactId>
 			<version>1.5</version>
 		</dependency>
-
+		
+		<dependency>
+		    <groupId>com.github.wvengen</groupId>
+		    <artifactId>proguard-maven-plugin</artifactId>
+		    <version>2.3.0</version>
+		</dependency>
+		
+		
+		<dependency>
+		  <groupId>org.apache.maven</groupId>
+		  <artifactId>maven-model</artifactId>
+		  <version>3.3.9</version>
+		</dependency>
+		
 	</dependencies>
+	
+
 
 
 
@@ -42,6 +59,7 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 
@@ -65,7 +83,7 @@
 							<mainClass>darkmotorsport.tunedbylog.gui.Mainapp</mainClass>
 						</manifest>
 					</archive>
-
+					<encoding>UTF-8</encoding>
 				</configuration>
 				<executions>
 					<execution>
@@ -104,6 +122,8 @@
 					</execution>
 				</executions>
 				<configuration>
+					<proguardVersion>6.0</proguardVersion>
+				
 					<!-- <obfuscate>true</obfuscate> -->
 					<outjar>${project.build.finalName}-ob.jar</outjar>
 					<outputDirectory>${project.build.directory}</outputDirectory>
@@ -124,7 +144,12 @@
 						<option>-adaptresourcefilecontents **.fxml</option>
 						<option>-keep class com.thoughtworks.** { *; }</option>
 						<option>-keep class org.xmlpull.** { *; }</option>
+						<option>-keep class org.xmlpull.** { *; }</option>
+						
+						
 
+						
+						
 
 						<option>-keepclassmembers class darkmotorsport.tunedbylog.xml.itens.** {*; }</option>
 						<option>-keepclassmembers class darkmotorsport.tunedbylog.gui.model.** { public *; }</option>
@@ -160,12 +185,14 @@
 					</libs>
 
 				</configuration>
+				 <dependencies>
+					<dependency>
+					  <groupId>net.sf.proguard</groupId>
+					  <artifactId>proguard-base</artifactId>
+					  <version>6.0</version>
+					</dependency>
+				</dependencies>
 			</plugin>
-
-
-
-
-
 
 		</plugins>
 	</build>
