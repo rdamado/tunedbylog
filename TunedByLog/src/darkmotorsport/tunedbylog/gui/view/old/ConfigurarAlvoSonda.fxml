@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="309.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="darkmotorsport.tunedbylog.gui.controller.SondaAlvoController">
+   <children>
+      <Button layoutX="142.0" layoutY="200.0" mnemonicParsing="false" onAction="#gravar" text="Gravar" />
+      <TextField fx:id="mapPos1" layoutX="95.0" layoutY="41.0" prefHeight="29.0" prefWidth="55.0" text="-0.80" />
+      <TextField fx:id="lambdaPos1" layoutX="186.0" layoutY="40.0" prefHeight="29.0" prefWidth="44.0" text="1.00" />
+      <TextField fx:id="mapPos2" layoutX="95.0" layoutY="70.0" prefHeight="29.0" prefWidth="55.0" text="0.00" />
+      <TextField fx:id="lambdaPos2" layoutX="186.0" layoutY="69.0" prefHeight="29.0" prefWidth="44.0" text="1.00" />
+      <TextField fx:id="mapPos3" layoutX="95.0" layoutY="99.0" prefHeight="29.0" prefWidth="55.0" text="0.60" />
+      <TextField fx:id="lambdaPos3" layoutX="186.0" layoutY="98.0" prefHeight="29.0" prefWidth="44.0" text="0.82" />
+      <TextField fx:id="mapPos4" layoutX="95.0" layoutY="128.0" prefHeight="29.0" prefWidth="55.0" text="1.60" />
+      <TextField fx:id="lambdaPos4" layoutX="186.0" layoutY="127.0" prefHeight="29.0" prefWidth="44.0" text="0.82" />
+      <TextField fx:id="mapPos5" layoutX="95.0" layoutY="157.0" prefHeight="29.0" prefWidth="55.0" text="2.00" />
+      <TextField fx:id="lambdaPos5" layoutX="186.0" layoutY="156.0" prefHeight="29.0" prefWidth="44.0" text="0.82" />
+      <Text layoutX="73.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#1" wrappingWidth="18.6884765625" />
+      <Text layoutX="73.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#2" wrappingWidth="18.6884765625" />
+      <Text layoutX="73.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#3" wrappingWidth="18.6884765625" />
+      <Text layoutX="73.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#4" wrappingWidth="18.6884765625" />
+      <Text layoutX="73.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#5" wrappingWidth="18.6884765625" />
+      <Text layoutX="154.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bar" wrappingWidth="31.6884765625" />
+      <Text layoutX="154.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bar" wrappingWidth="24.6884765625" />
+      <Text layoutX="154.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bar" wrappingWidth="24.6884765625" />
+      <Text layoutX="154.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bar" wrappingWidth="24.6884765625" />
+      <Text layoutX="154.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bar" wrappingWidth="24.6884765625" />
+      <Text layoutX="234.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="λ" wrappingWidth="24.6884765625" />
+      <Text layoutX="234.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="λ" wrappingWidth="24.6884765625" />
+      <Text layoutX="234.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="λ" wrappingWidth="24.6884765625" />
+      <Text layoutX="234.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="λ" wrappingWidth="24.6884765625" />
+      <Text layoutX="234.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="λ" wrappingWidth="31.6884765625" />
+      <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sonda Lambda Alvo:" />
+   </children>
+</Pane>

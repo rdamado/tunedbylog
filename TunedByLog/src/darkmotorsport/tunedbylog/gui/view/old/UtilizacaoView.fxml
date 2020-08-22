@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea editable="false" layoutX="6.0" layoutY="14.0" prefHeight="594.0" prefWidth="893.0" text="Utilização do Tuned by Log &#10;&#10;&#10;Filtros:&#10;-Truncar Média: Se marcado serão descartadas as amostras mais altas e as mais baixas de acordo com o percentual informado no campo &quot;Truncar %&quot;. &#10;--Ex.: De 100 amostras com 10% configurados, os 10 maiores registros e os 10 menores serão descartados.&#10;-Truncar %: Porcentagem de amostras a serem descartadas nos extremos.&#10;-Tps &gt;: Valor mínimo de TPS.&#10;-Tps &lt;: Valor máximo de TPS.&#10;-Temp. Motor &gt;: Valor mínimo de Temperatura de motor.&#10;-Temp. Motor &lt;: Valor máximo de Temperatura de motor.&#10;-Precisão Map: Valor de Precisão da Map.&#10;--Ex.: Se configurado com 0.02 ao analisar a coluna -0.70 serão consideradas as os valores no intervalo -0.68  até -0.72.&#10;-Sonda &gt; : Valor Mínimo de Sonda Lambda.&#10;-Sonda &lt; : Valor Máximo de Sonda Lambda.&#10;&#10;&#10;Botões:&#10;-Abrir Log: Seleção do arquivo de log.&#10;-Recarregar: Recarrega o log já selecionado.&#10;-Interpolar: Interpolação linear de registro, somente pode ser utilizado na linha &quot;Editável(mS)&quot;.&#10;--Ex.: Se selecionadas da célula 1 a 5 aonde os valores da célula 1 seja igual a 10 e da 5 igual a 50, o valores das células 2,3 e 4 serão 20,30 e 40.&#10;&#10;" />
+   </children>
+</Pane>

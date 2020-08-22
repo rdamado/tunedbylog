@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="darkmotorsport.tunedbylog.gui.controller.PaginaInicialController">
+	<top>
+		<VBox>
+			<children>
+				<MenuBar>
+					<menus>
+						<Menu mnemonicParsing="false" text="Arquivo">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#doCarregarConfiguracoes" text="Carregar Configurações" />
+								<MenuItem mnemonicParsing="false" onAction="#doSalvarConfiguracoes" text="Salvar Configurações" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Editar">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#doEditarSondaAlvo" text="Sonda Alvo" />
+								<MenuItem mnemonicParsing="false" text="Colar Mapa(mS)" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Ajuda">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#doMenuUtilizacao" text="Utilização" />
+								<MenuItem mnemonicParsing="false" onAction="#doMenuSobre" text="Sobre" />
+							</items>
+						</Menu>
+					</menus>
+					<BorderPane.margin>
+						<Insets />
+					</BorderPane.margin>
+				</MenuBar>
+				<HBox>
+					<children>
+						<Label text="Configuração carregada: ">
+							<font>
+								<Font name="System Bold" size="13.0" />
+							</font>
+							<HBox.margin>
+								<Insets left="5.0" />
+							</HBox.margin>
+						</Label>
+						<Label fx:id="lblCaminhoArquivoConfiguracao" text="Sem carregamento" />
+					</children>
+				</HBox>
+			</children>
+		</VBox>
+	</top>
+
+
+
+
+
+	<left>
+		<VBox prefHeight="362.0" prefWidth="211.0">
+			<children>
+				<GridPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="289.0" prefWidth="196.0" BorderPane.alignment="TOP_LEFT">
+					<children>
+
+
+						<CheckBox fx:id="checkboxTruncar" mnemonicParsing="false" selected="true" text="Truncar Média" textAlignment="JUSTIFY" BorderPane.alignment="CENTER" />
+						<Label layoutX="71.0" layoutY="130.0" text="TPS&gt;" GridPane.rowIndex="2" />
+						<Label layoutX="71.0" layoutY="162.0" text="TPS&lt;" GridPane.rowIndex="3" />
+						<Label layoutX="22.0" layoutY="195.0" text="Tmp. Motor &gt;" GridPane.rowIndex="4" />
+						<Label layoutX="24.0" layoutY="259.0" text="Precisão Map" GridPane.rowIndex="6" />
+						<Label layoutX="22.0" layoutY="226.0" text="Tmp. Motor &lt;" GridPane.rowIndex="5" />
+						<Label layoutX="55.0" layoutY="289.0" text="Sonda &gt;" GridPane.rowIndex="7" />
+						<Label layoutX="55.0" layoutY="321.0" text="Sonda &lt;" GridPane.rowIndex="8" />
+						<Label layoutX="29.0" layoutY="99.0" text="Truncar %" GridPane.rowIndex="1" />
+
+
+
+						<TextField fx:id="percTruncada" prefHeight="29.0" prefWidth="43.0" text="10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+						<TextField fx:id="tpsMinimo" layoutX="109.0" layoutY="125.0" prefHeight="29.0" prefWidth="43.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+						<TextField fx:id="tpsMaximo" layoutX="109.0" layoutY="158.0" prefHeight="29.0" prefWidth="43.0" text="100" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+						<TextField fx:id="tempMotorMinimo" layoutX="109.0" layoutY="190.0" prefHeight="29.0" prefWidth="43.0" text="80" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+						<TextField fx:id="tempMotorMaximo" layoutX="109.0" layoutY="221.0" prefHeight="29.0" prefWidth="43.0" text="100" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+						<TextField fx:id="precisaoMap" layoutX="109.0" layoutY="253.0" prefHeight="29.0" prefWidth="43.0" text="0.02" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+						<TextField fx:id="sondaMinimo" layoutX="109.0" layoutY="284.0" prefHeight="29.0" prefWidth="43.0" text="0.70" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+						<TextField fx:id="sondaMaximo" layoutX="109.0" layoutY="316.0" prefHeight="29.0" prefWidth="43.0" text="1.30" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+					</children>
+					<columnConstraints>
+						<ColumnConstraints maxWidth="163.0" minWidth="74.0" prefWidth="119.0" />
+						<ColumnConstraints maxWidth="121.0" minWidth="32.0" prefWidth="76.0" />
+						<ColumnConstraints />
+						<ColumnConstraints />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" />
+						<RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+					</rowConstraints>
+					<BorderPane.margin>
+						<Insets bottom="1.0" left="5.0" right="1.0" top="1.0" />
+					</BorderPane.margin>
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+				</GridPane>
+				<Label layoutX="617.0" layoutY="411.0" text="Tuned by Log " textFill="RED">
+					<font>
+						<Font name="System Bold Italic" size="31.0" />
+					</font>
+					<VBox.margin>
+						<Insets left="5.0" />
+					</VBox.margin>
+				</Label>
+			</children>
+		</VBox>
+
+
+
+	</left>
+
+
+
+	<center>
+
+
+
+
+	</center>
+	<bottom>
+		<VBox>
+			<children>
+
+				<HBox>
+					<children>
+						<VBox>
+							<children>
+								<VBox>
+									<children>
+										<HBox>
+											<children>
+												<Button fx:id="btnAbrirLog" onAction="#abrirLog" prefHeight="29.0" prefWidth="96.0" text="Abrir Log" />
+												<Button fx:id="btnCorrigirMapa" onAction="#recarregarArquivo" prefHeight="29.0" prefWidth="111.0" text="Recarregar" />
+
+											</children>
+										</HBox>
+										<Label fx:id="lblCaminhoArquivo" layoutX="8.0" layoutY="452.0" prefHeight="19.0" prefWidth="742.0" text="Nenhum Log Aberto" />
+										<Button fx:id="btnInterpolar" onAction="#doInterpolar" prefHeight="29.0" prefWidth="98.0" text="Interpolar" />
+									</children>
+								</VBox>
+							</children>
+							<HBox.margin>
+								<Insets left="5.0" />
+							</HBox.margin>
+
+						</VBox>
+						<Region prefHeight="80.0" prefWidth="67.0" HBox.hgrow="ALWAYS" />
+						<VBox alignment="TOP_RIGHT">
+							<children>
+
+								<Label prefHeight="19.0" prefWidth="220.0" text="Desenvolvido por:" />
+								<Label prefHeight="19.0" prefWidth="214.0" text="Rian Diego - rian.diego@gmail.com" />
+								<ImageView fx:id="imgDoacao" fitHeight="48.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@img/209x48-doar-assina.gif" />
+									</image>
+									<cursor>
+										<Cursor fx:constant="HAND" />
+									</cursor>
+									<VBox.margin>
+										<Insets right="5.0" />
+									</VBox.margin>
+								</ImageView>
+							</children>
+
+
+
+						</VBox>
+					</children>
+
+				</HBox>
+
+
+
+				<GridPane BorderPane.alignment="CENTER">
+					<children>
+						<TableView id="tabelaMap" fx:id="tabelaMap" editable="true" prefHeight="272.0" BorderPane.alignment="CENTER">
+							<columns>
+								<TableColumn id="descricaoLinha" fx:id="descricaoLinha" editable="false" prefWidth="105.0" style="-fx-font-weight:bold" text="MAP" />
+								<TableColumn id="map_m_0_90" fx:id="map_m_0_90" minWidth="9.0" prefWidth="65.0" text="-0.90" />
+								<TableColumn id="map_m_0_85" fx:id="map_m_0_85" prefWidth="65.0" text="-0.85" />
+								<TableColumn id="map_m_0_80" fx:id="map_m_0_80" prefWidth="65.0" text="-0.80" />
+								<TableColumn id="map_m_0_75" fx:id="map_m_0_75" prefWidth="65.0" text="-0.75" />
+								<TableColumn id="map_m_0_70" fx:id="map_m_0_70" prefWidth="65.0" text="-0.70" />
+								<TableColumn id="map_m_0_65" fx:id="map_m_0_65" prefWidth="65.0" text="-0.65" />
+								<TableColumn id="map_m_0_60" fx:id="map_m_0_60" prefWidth="65.0" text="-0.60" />
+								<TableColumn id="map_m_0_55" fx:id="map_m_0_55" prefWidth="65.0" text="-0.55" />
+								<TableColumn id="map_m_0_50" fx:id="map_m_0_50" prefWidth="65.0" text="-0.50" />
+								<TableColumn fx:id="map_m_0_45" prefWidth="65.0" text="-0.45" />
+								<TableColumn fx:id="map_m_0_40" prefWidth="65.0" text="-0.40" />
+								<TableColumn fx:id="map_m_0_35" prefWidth="65.0" text="-0.35" />
+								<TableColumn fx:id="map_m_0_30" prefWidth="65.0" text="-0.30" />
+								<TableColumn fx:id="map_m_0_25" prefWidth="65.0" text="-0.25" />
+								<TableColumn fx:id="map_m_0_20" prefWidth="65.0" text="-0.20" />
+								<TableColumn fx:id="map_m_0_15" prefWidth="65.0" text="-0.15" />
+								<TableColumn fx:id="map_m_0_10" prefWidth="65.0" text="-0.10" />
+								<TableColumn fx:id="map_m_0_05" prefWidth="65.0" text="-0.05" />
+								<TableColumn fx:id="map_0_00" prefWidth="65.0" text="0.00" />
+								<TableColumn fx:id="map_0_05" prefWidth="65.0" text="0.05" />
+								<TableColumn fx:id="map_0_10" prefWidth="65.0" text="0.10" />
+								<TableColumn fx:id="map_0_20" prefWidth="65.0" text="0.20" />
+								<TableColumn fx:id="map_0_30" prefWidth="65.0" text="0.30" />
+								<TableColumn fx:id="map_0_40" prefWidth="65.0" text="0.40" />
+								<TableColumn fx:id="map_0_50" prefWidth="65.0" text="0.50" />
+								<TableColumn fx:id="map_0_60" prefWidth="65.0" text="0.60" />
+								<TableColumn fx:id="map_0_70" prefWidth="65.0" text="0.70" />
+								<TableColumn fx:id="map_0_80" prefWidth="65.0" text="0.80" />
+								<TableColumn fx:id="map_0_90" prefWidth="65.0" text="0.90" />
+								<TableColumn fx:id="map_1_00" prefWidth="65.0" text="1.00" />
+								<TableColumn fx:id="map_1_10" prefWidth="65.0" text="1.10" />
+								<TableColumn fx:id="map_1_20" prefWidth="65.0" text="1.20" />
+								<TableColumn fx:id="map_1_30" prefWidth="65.0" text="1.30" />
+								<TableColumn fx:id="map_1_40" prefWidth="65.0" text="1.40" />
+								<TableColumn fx:id="map_1_50" prefWidth="65.0" text="1.50" />
+								<TableColumn fx:id="map_1_60" prefWidth="65.0" text="1.60" />
+								<TableColumn fx:id="map_1_70" prefWidth="65.0" text="1.70" />
+								<TableColumn fx:id="map_1_80" prefWidth="65.0" text="1.80" />
+								<TableColumn fx:id="map_1_90" prefWidth="65.0" text="1.90" />
+								<TableColumn fx:id="map_2_00" prefWidth="65.0" text="2.00" />
+
+							</columns>
+							<opaqueInsets>
+								<Insets left="5.0" right="5.0" />
+							</opaqueInsets>
+						</TableView>
+					</children>
+					<columnConstraints>
+						<ColumnConstraints />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints />
+						<RowConstraints />
+						<RowConstraints />
+					</rowConstraints>
+					<opaqueInsets>
+						<Insets left="5.0" right="5.0" />
+					</opaqueInsets>
+				</GridPane>
+			</children>
+		</VBox>
+
+	</bottom>
+
+
+
+
+
+	<center>
+		<LineChart fx:id="lineChartInjecao" BorderPane.alignment="CENTER">
+			<xAxis>
+				<CategoryAxis side="BOTTOM" />
+			</xAxis>
+			<yAxis>
+				<NumberAxis side="LEFT" />
+			</yAxis>
+		</LineChart>
+	</center>
+
+</BorderPane>

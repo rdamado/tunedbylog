@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane prefHeight="750.0" prefWidth="1600" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="darkmotorsport.tunedbylog.gui.controller.PaginaInicialController">
+	<children>
+		<AnchorPane layoutY="21.0" prefHeight="300.0" prefWidth="600.0">
+			<children>
+            <CheckBox fx:id="checkboxTruncar" layoutX="48.0" layoutY="69.0" mnemonicParsing="false" selected="true" text="Truncar Média" textAlignment="JUSTIFY" />
+            <TextField fx:id="percTruncada" layoutX="109.0" layoutY="94.0" prefHeight="29.0" prefWidth="43.0" text="10" />
+            <TextField fx:id="tpsMinimo" layoutX="109.0" layoutY="125.0" prefHeight="29.0" prefWidth="43.0" text="1" />
+            <TextField fx:id="tpsMaximo" layoutX="109.0" layoutY="158.0" prefHeight="29.0" prefWidth="43.0" text="100" />
+            <TextField fx:id="tempMotorMinimo" layoutX="109.0" layoutY="190.0" prefHeight="29.0" prefWidth="43.0" text="80" />
+            <TextField fx:id="tempMotorMaximo" layoutX="109.0" layoutY="221.0" prefHeight="29.0" prefWidth="43.0" text="100" />
+            <TextField fx:id="precisaoMap" layoutX="109.0" layoutY="253.0" prefHeight="29.0" prefWidth="43.0" text="0.02" />
+            <TextField fx:id="sondaMinimo" layoutX="109.0" layoutY="284.0" prefHeight="29.0" prefWidth="43.0" text="0.70" />
+            <TextField fx:id="sondaMaximo" layoutX="109.0" layoutY="316.0" prefHeight="29.0" prefWidth="43.0" text="1.30" />
+            
+            <Button fx:id="btnAbrirLog" layoutX="12.0" layoutY="385.0" mnemonicParsing="false" onAction="#abrirLog" text="Abrir Log" />
+            <Button fx:id="btnCorrigirMapa" layoutX="91.0" layoutY="385.0" mnemonicParsing="false" onAction="#recarregarArquivo" text="Recarregar" />
+            <Button fx:id="btnInterpolar" layoutX="460.0" layoutY="386.0" mnemonicParsing="false" onAction="#doInterpolar" text="Interpolar" />
+            
+            
+			<TableView id="tabelaMap" fx:id="tabelaMap" editable="true" layoutX="6.0" layoutY="442.0" prefHeight="272.0" prefWidth="1581.0">
+				<columns>
+				<TableColumn id="descricaoLinha" fx:id="descricaoLinha" editable="false" prefWidth="105.0" style="-fx-font-weight:bold" text="MAP" />
+				<TableColumn id="map_m_0_90" fx:id="map_m_0_90" minWidth="9.0" prefWidth="65.0" text="-0.90" />
+				<TableColumn id="map_m_0_85" fx:id="map_m_0_85" prefWidth="65.0" text="-0.85" />
+				<TableColumn id="map_m_0_80" fx:id="map_m_0_80" prefWidth="65.0" text="-0.80" />
+				<TableColumn id="map_m_0_75" fx:id="map_m_0_75" prefWidth="65.0" text="-0.75" />
+				<TableColumn id="map_m_0_70" fx:id="map_m_0_70" prefWidth="65.0" text="-0.70" />
+				<TableColumn id="map_m_0_65" fx:id="map_m_0_65" prefWidth="65.0" text="-0.65" />
+				<TableColumn id="map_m_0_60" fx:id="map_m_0_60" prefWidth="65.0" text="-0.60" />
+				<TableColumn id="map_m_0_55" fx:id="map_m_0_55" prefWidth="65.0" text="-0.55" />
+				<TableColumn id="map_m_0_50" fx:id="map_m_0_50" prefWidth="65.0" text="-0.50" />
+				<TableColumn fx:id="map_m_0_45" prefWidth="65.0" text="-0.45" />
+				<TableColumn fx:id="map_m_0_40" prefWidth="65.0" text="-0.40" />
+				<TableColumn fx:id="map_m_0_35" prefWidth="65.0" text="-0.35" />
+				<TableColumn fx:id="map_m_0_30" prefWidth="65.0" text="-0.30" />
+				<TableColumn fx:id="map_m_0_25" prefWidth="65.0" text="-0.25" />
+				<TableColumn fx:id="map_m_0_20" prefWidth="65.0" text="-0.20" />
+				<TableColumn fx:id="map_m_0_15" prefWidth="65.0" text="-0.15" />
+				<TableColumn fx:id="map_m_0_10" prefWidth="65.0" text="-0.10" />
+				<TableColumn fx:id="map_m_0_05" prefWidth="65.0" text="-0.05" />
+				<TableColumn fx:id="map_0_00" prefWidth="65.0" text="0.00" />
+				<TableColumn fx:id="map_0_05" prefWidth="65.0" text="0.05" />
+				<TableColumn fx:id="map_0_10" prefWidth="65.0" text="0.10" />
+				<TableColumn fx:id="map_0_20" prefWidth="65.0" text="0.20" />
+				<TableColumn fx:id="map_0_30" prefWidth="65.0" text="0.30" />
+				<TableColumn fx:id="map_0_40" prefWidth="65.0" text="0.40" />
+				<TableColumn fx:id="map_0_50" prefWidth="65.0" text="0.50" />
+				<TableColumn fx:id="map_0_60" prefWidth="65.0" text="0.60" />
+				<TableColumn fx:id="map_0_70" prefWidth="65.0" text="0.70" />
+				<TableColumn fx:id="map_0_80" prefWidth="65.0" text="0.80" />
+				<TableColumn fx:id="map_0_90" prefWidth="65.0" text="0.90" />
+				<TableColumn fx:id="map_1_00" prefWidth="65.0" text="1.00" />
+				<TableColumn fx:id="map_1_10" prefWidth="65.0" text="1.10" />
+				<TableColumn fx:id="map_1_20" prefWidth="65.0" text="1.20" />
+				<TableColumn fx:id="map_1_30" prefWidth="65.0" text="1.30" />
+				<TableColumn fx:id="map_1_40" prefWidth="65.0" text="1.40" />
+				<TableColumn fx:id="map_1_50" prefWidth="65.0" text="1.50" />
+				<TableColumn fx:id="map_1_60" prefWidth="65.0" text="1.60" />
+				<TableColumn fx:id="map_1_70" prefWidth="65.0" text="1.70" />
+				<TableColumn fx:id="map_1_80" prefWidth="65.0" text="1.80" />
+				<TableColumn fx:id="map_1_90" prefWidth="65.0" text="1.90" />
+				<TableColumn fx:id="map_2_00" prefWidth="65.0" text="2.00" />
+				
+				</columns>
+			</TableView>
+            <LineChart fx:id="lineChartInjecao" layoutX="140.0" layoutY="-4.0" prefHeight="403.0" prefWidth="1443.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <Label layoutX="71.0" layoutY="130.0" text="TPS&gt;" />
+            <Label layoutX="71.0" layoutY="162.0" text="TPS&lt;" />
+            <Label layoutX="22.0" layoutY="195.0" text="Tmp. Motor &gt;" />
+            <Label layoutX="24.0" layoutY="259.0" text="Precisão Map" />
+            <Label layoutX="22.0" layoutY="226.0" text="Tmp. Motor &lt;" />
+            <Label layoutX="55.0" layoutY="289.0" text="Sonda &gt;" />
+            <Label layoutX="55.0" layoutY="321.0" text="Sonda &lt;" />
+            <Label layoutX="29.0" layoutY="99.0" text="Truncar %" />
+            <Label fx:id="lblCaminhoArquivo" layoutX="8.0" layoutY="417.0" />
+            <Label layoutX="1274.0" layoutY="376.0" text="Desenvolvido por Rian Diego - rian.diego@gmail.com" />
+            <Label layoutX="616.0" layoutY="387.0" text="Tuned by Log (TbyL)">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgDoacao" fitHeight="48.0" fitWidth="209.0" layoutX="1378.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
+            	 <image>
+                <Image url="@img/209x48-doar-assina.gif" />
+            </image>
+            </ImageView>
+			</children>
+		</AnchorPane>
+      <Label layoutX="4.0" layoutY="4.0" text="Configuração carregada:" />
+      <Label fx:id="lblCaminhoArquivoConfiguracao" layoutX="151.0" layoutY="4.0" text="Sem carregamento" />
+	</children>
+</BorderPane>

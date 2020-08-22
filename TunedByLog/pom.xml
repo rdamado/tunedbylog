@@ -1,0 +1,172 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>TunedByLog</groupId>
+	<artifactId>TunedByLog</artifactId>
+	<version>3.1.0-SNAPSHOT</version>
+
+
+	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.10</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.5</version>
+		</dependency>
+
+	</dependencies>
+
+
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+
+
+
+
+			<!-- Maven Assembly Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<!-- get all project dependencies -->
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<!-- MainClass in mainfest make a executable jar -->
+					<archive>
+						<manifest>
+							<mainClass>darkmotorsport.tunedbylog.gui.Mainapp</mainClass>
+						</manifest>
+					</archive>
+
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<!-- bind to the packaging phase -->
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>com.zenjava</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>8.8.3</version>
+				<configuration>
+					<vendor>DarkWorks</vendor>
+					<mainClass>darkmotorsport.tunedbylog.gui.Mainapp</mainClass>
+				</configuration>
+			</plugin>
+
+
+
+
+			<plugin>
+				<groupId>com.github.wvengen</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- <obfuscate>true</obfuscate> -->
+					<outjar>${project.build.finalName}-ob.jar</outjar>
+					<outputDirectory>${project.build.directory}</outputDirectory>
+
+
+					<options>
+						<option>-allowaccessmodification</option>
+						<option>-dontnote</option>
+						<option>-dontwarn</option>
+						<option>-flattenpackagehierarchy ''</option>
+						<option>-optimizationpasses 5</option>
+
+
+						<option>-keepclassmembers class * { @javafx.fxml.FXML *; }</option>
+						<option>-keepclassmembers class * { @javax.xml.** *; }</option>
+						<option>-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,*Annotation*,Synthetic,EnclosingMethod</option>
+						<option>-adaptresourcefilecontents **.fxml,**.properties,META-INF/MANIFEST.MF</option>
+						<option>-adaptresourcefilecontents **.fxml</option>
+						<option>-keep class com.thoughtworks.** { *; }</option>
+						<option>-keep class org.xmlpull.** { *; }</option>
+
+
+						<option>-keepclassmembers class darkmotorsport.tunedbylog.xml.itens.** {*; }</option>
+						<option>-keepclassmembers class darkmotorsport.tunedbylog.gui.model.** { public *; }</option>
+						<option>-keepclassmembers class darkmotorsport.tunedbylog.gui.model.ConfiguracoesWrapper{ public *; }</option>
+						<option>-keep class darkmotorsport.tunedbylog.gui.Mainapp{ public *; }</option>
+
+						<option>-keepclassmembers class darkmotorsport.tunedbylog.gui.controller.TabelaDadosController{ public *; }</option>
+						<option>-keepclassmembers class darkmotorsport.tunedbylog.gui.controller.PaginaInicialAbaRPM{ public *; }</option>
+
+
+						<!-- <option>-allowaccessmodification</option> -->
+						<!-- <option>-dontnote</option> -->
+						<!-- <option>-dontwarn</option> -->
+						<!-- <option>-flattenpackagehierarchy ''</option> -->
+						<!-- <option>-adaptresourcefilecontents **.fxml</option> -->
+						<!-- <option>-keep class com.thoughtworks.** { *; }</option> -->
+						<!-- <option>-keep class org.xmlpull.** { *; }</option> -->
+						<!-- <option>-keepnames class darkmotorsport.tunedbylog.xml.itens.** {*; }</option> -->
+						<!-- <option>-keep class darkmotorsport.tunedbylog.gui.model.DadoTabelaMap{ *; }</option> -->
+						<!-- <option>-keepclassmembers class *{ *; }</option> -->
+						<!-- <option>-keep class darkmotorsport.tunedbylog.gui.model.ConfiguracoesWrapper{ *; }</option> -->
+						<!-- <option>-optimizationpasses 5</option> -->
+						<!-- <option>-keep class darkmotorsport.tunedbylog.gui.Mainapp{ *; }</option> -->
+						<!-- <option>-keepclassmembernames class * { @javafx.fxml.FXML *; }</option> -->
+						<!-- <option>-keepclassmembernames class * { @javax.xml.** *; }</option> -->
+						<!-- <option>-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,LocalVariable*Table,*Annotation*,Synthetic,EnclosingMethod</option> -->
+						<!-- <option>-adaptresourcefilecontents **.fxml,**.properties,META-INF/MANIFEST.MF</option> -->
+					</options>
+					<injar>${project.build.finalName}-jar-with-dependencies.jar</injar>
+					<libs>
+						<lib>${java.home}/lib/rt.jar</lib>
+						<lib>${java.home}/lib/ext/jfxrt.jar</lib>
+					</libs>
+
+				</configuration>
+			</plugin>
+
+
+
+
+
+
+		</plugins>
+	</build>
+</project>
