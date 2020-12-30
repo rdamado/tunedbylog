@@ -6,15 +6,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.converters.SingleValueConverter;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 
 import darkmotorsport.tunedbylog.util.Constantes;
@@ -39,11 +35,13 @@ public class ArquivoLog {
 		BufferedReader reader = new BufferedReader(inputStreamReader);
 //		Throwable throwable = null;
 		try {
-			logArq = (LogArquivo) xstream.fromXML((Reader) reader);
+			logArq = (LogArquivo) xstream.fromXML(reader);
 		} catch (Throwable throwable2) {
 			throwable2.printStackTrace();
 //			throwable = throwable2;
+//			JOptionPane.showMessageDialog(null, throwable2.getMessage(), "Tuned By Log", JOptionPane.INFORMATION_MESSAGE);
 			throw throwable2;
+
 		} finally {
 //			if (reader != null) {
 //				if (throwable != null) {
@@ -146,7 +144,7 @@ public class ArquivoLog {
 
 		Object arqCanal = null;
 		LogArquivo logArq = new LogArquivo();
-		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter((OutputStream) new FileOutputStream(arq), "UTF-8"));
+		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(arq), "UTF-8"));
 		try {
 			logArq.setInformacao(log.getInformacao());
 			logArq.setTags(log.getListaTags().toArray(new Tag[log.getListaTags().size()]));
@@ -167,7 +165,7 @@ public class ArquivoLog {
 			this.configurarAlias(xstream);
 			arqCanal = null;
 
-			xstream.toXML((Object) logArq, (Writer) writer);
+			xstream.toXML(logArq, writer);
 		} catch (Throwable throwable) {
 			arqCanal = throwable;
 			throw throwable;
@@ -188,7 +186,7 @@ public class ArquivoLog {
 	}
 
 	private void configurarAlias(XStream xstream) {
-		XStream.setupDefaultSecurity((XStream) xstream);
+		XStream.setupDefaultSecurity(xstream);
 		xstream.allowTypes(new Class[] { LogArquivo.class, LogArquivoCanal.class, Tag.class, ControleLargadaItem.class, ControleTracaoMarcha.class, ControleTracaoItem.class
 
 		});
@@ -199,7 +197,7 @@ public class ArquivoLog {
 		xstream.alias("controleTracaoMarcha", ControleTracaoMarcha.class);
 		xstream.alias("controleTracaoItem", ControleTracaoItem.class);
 		xstream.alias("v", Float.TYPE);
-		xstream.registerConverter((SingleValueConverter) new DateConverter("dd-MM-yyyy HH:mm", new String[0]));
+		xstream.registerConverter(new DateConverter("dd-MM-yyyy HH:mm", new String[0]));
 	}
 
 }

@@ -48,7 +48,7 @@ public class Mainapp extends Application {
 
 		this.primaryStage = primaryStage;
 //		this.primaryStage.setTitle("Tuned by Log (TbyL) - rian.diego@gmail.com - "+ model.getVersion());
-		this.primaryStage.setTitle("Tuned by Log (TbyL) - rian.diego@gmail.com - " + "3.1.0");
+		this.primaryStage.setTitle("Tuned by Log (TbyL) - rian.diego@gmail.com - " + "3.2.0 - 30/12/2020");
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		int width = gd.getDisplayMode().getWidth();
 		int height = gd.getDisplayMode().getHeight();

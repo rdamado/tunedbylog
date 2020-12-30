@@ -3,6 +3,8 @@ package darkmotorsport.tunedbylog.xml.itens;
 import java.util.List;
 
 public class LogArquivo {
+
+	private String versao;
 	private LogInformacao informacao;
 	private Tag[] tags;
 	private boolean acompanharPonteiro = true;
@@ -13,6 +15,7 @@ public class LogArquivo {
 	private List<LogArquivoCanal> canais;
 	private String controleLargadaModo;
 	private String mapa;
+	private String chave;
 
 	private String mapaPowerGrip;
 
@@ -22,6 +25,14 @@ public class LogArquivo {
 
 	public void setControleLargadaModo(String controleLargadaModo) {
 		this.controleLargadaModo = controleLargadaModo;
+	}
+
+	public String getVersao() {
+		return this.versao;
+	}
+
+	public void setVersao(String versao) {
+		this.versao = versao;
 	}
 
 	public LogInformacao getInformacao() {
@@ -102,5 +113,13 @@ public class LogArquivo {
 
 	public void setMapaPowerGrip(String mapaPowerGrip) {
 		this.mapaPowerGrip = mapaPowerGrip;
+	}
+
+	public String getChave() {
+		return this.chave;
+	}
+
+	public void setChave(String chave) {
+		this.chave = chave;
 	}
 }
