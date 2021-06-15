@@ -114,7 +114,7 @@ public class CalculadorMapRpm {
 		BigDecimal rpmInicial = new BigDecimal(500);
 		BigDecimal rpmFinal = new BigDecimal(8000);
 
-		BigDecimal mapInicial = new BigDecimal(-0.80);
+		BigDecimal mapInicial = new BigDecimal(-0.90);
 		BigDecimal mapFinal = new BigDecimal(2.00);
 
 		BigDecimal mapFator = new BigDecimal(0.05);

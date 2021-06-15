@@ -13,6 +13,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 import darkmotorsport.tunedbylog.gui.Mainapp;
 import darkmotorsport.tunedbylog.gui.calc.Calculador;
 import darkmotorsport.tunedbylog.gui.model.AlvoSondaLambda;
@@ -80,7 +82,9 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 	@FXML
 	private void abrirLog() {
 
-		doAbrirLog();
+		this.doAbrirLog();
+		this.doEditarSondaAlvo();
+
 	}
 
 	@FXML
@@ -229,6 +233,7 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 
 		} catch (Throwable e) {
 			e.printStackTrace();
+			apresentarAlertaError(ExceptionUtils.getStackTrace(e));
 		}
 	}
 
@@ -1258,9 +1263,12 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 		Float map4 = maps[3];
 		Float map5 = maps[4];
 
+		listaValoresSonda = new ArrayList<String>();
+
 		for (int i = 0; i < 40; i++) {
 			listaValoresSonda.add(null);
 		}
+
 		for (AlvoSondaLambda alvo : lista) {
 			// listaValoresSonda.set(PosicaoValor.getMapaPosicoesValores().get(alvo.getValorMap()),
 			// alvo.getValorLambda().toString());
@@ -1376,6 +1384,7 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 
 		lambdaAlvo.setValores(listaValoresSonda);
 		atualizarTabela();
+		this.recarregarArquivo();
 
 	}
 
@@ -1494,6 +1503,14 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 
 	private void apresentarAlertaAviso(String msg) {
 		Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle("Aviso");
+		alert.setHeaderText(null);
+		alert.setContentText(msg);
+		alert.showAndWait();
+	}
+
+	private void apresentarAlertaError(String msg) {
+		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Aviso");
 		alert.setHeaderText(null);
 		alert.setContentText(msg);

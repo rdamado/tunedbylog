@@ -9,7 +9,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="309.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="darkmotorsport.tunedbylog.gui.controller.SondaAlvoController">
    <children>
       <Button layoutX="142.0" layoutY="200.0" mnemonicParsing="false" onAction="#gravar" text="Gravar" />
-      <TextField fx:id="mapPos1" layoutX="95.0" layoutY="41.0" prefHeight="29.0" prefWidth="55.0" text="-0.80" />
+      <TextField fx:id="mapPos1" layoutX="95.0" layoutY="41.0" prefHeight="29.0" prefWidth="55.0" text="-0.90" />
       <TextField fx:id="lambdaPos1" layoutX="186.0" layoutY="40.0" prefHeight="29.0" prefWidth="44.0" text="1.00" />
       <TextField fx:id="mapPos2" layoutX="95.0" layoutY="70.0" prefHeight="29.0" prefWidth="55.0" text="0.00" />
       <TextField fx:id="lambdaPos2" layoutX="186.0" layoutY="69.0" prefHeight="29.0" prefWidth="44.0" text="1.00" />
