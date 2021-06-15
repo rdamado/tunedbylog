@@ -26,6 +26,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#doMenuUtilizacao" text="Utilização" />
               <MenuItem mnemonicParsing="false" onAction="#doMenuSobre" text="Sobre" />
+              <MenuItem mnemonicParsing="false" onAction="#doMenuPIX" text="PIX" />
             </items>
           </Menu>
         </menus>

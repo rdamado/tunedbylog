@@ -48,7 +48,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -1122,21 +1121,22 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 				}
 			}
 		});
-
-		imgDoacao.setOnMouseClicked((MouseEvent e) -> {
-			try {
-				Desktop.getDesktop().browse(new URI("https://pag.ae/blCwLvv"));
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			} catch (URISyntaxException e1) {
-				e1.printStackTrace();
-			}
-		});
+//
+//		imgDoacao.setOnMouseClicked((MouseEvent e) -> {
+//			try {
+//				Desktop.getDesktop().browse(new URI("https://pag.ae/blCwLvv"));
+//			} catch (IOException e1) {
+//				e1.printStackTrace();
+//			} catch (URISyntaxException e1) {
+//				e1.printStackTrace();
+//			}
+//		});
 
 		tabelaMap.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		tabelaMap.getSelectionModel().setCellSelectionEnabled(true);
 
 		Callback cellFactory = new Callback<TableColumn, TableCell>() {
+			@Override
 			public TableCell call(TableColumn p) {
 				return new CellEditavel();
 			}
@@ -1475,8 +1475,8 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 			return;
 		}
 
-		BigDecimal valor1 = getBigDecimalString((String) primeiroValor);
-		BigDecimal valor2 = getBigDecimalString((String) segundoValor);
+		BigDecimal valor1 = getBigDecimalString(primeiroValor);
+		BigDecimal valor2 = getBigDecimalString(segundoValor);
 
 		BigDecimal acres = (valor2.subtract(valor1)).divide(new BigDecimal(intervalo), mc).setScale(3, BigDecimal.ROUND_HALF_EVEN);
 
@@ -1674,6 +1674,20 @@ public class PaginaInicialController extends SuperPaginaInicialController {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setHeaderText(null);
 		alert.setContentText("Desenvolvido por Rian Diego - rian.diego@gmail.com");
+		alert.showAndWait();
+	}
+
+	@FXML
+	public void doMenuPIX() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		ImageView graphic = new ImageView(mainapp.getClass().getResource("/darkmotorsport/tunedbylog/gui/view/img/BarCodePix.jpeg").toString());
+		graphic.setFitHeight(200);
+		graphic.setFitWidth(200);
+		alert.setGraphic(graphic);
+		alert.setHeaderText(null);
+
+		alert.setContentText("Desenvolvido por Rian Diego - rian.diego@gmail.com");
+
 		alert.showAndWait();
 	}
 

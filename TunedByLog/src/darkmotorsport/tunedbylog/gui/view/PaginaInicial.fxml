@@ -34,6 +34,7 @@
 							<items>
 								<MenuItem mnemonicParsing="false" onAction="#doMenuUtilizacao" text="Utilização" />
 								<MenuItem mnemonicParsing="false" onAction="#doMenuSobre" text="Sobre" />
+								<MenuItem mnemonicParsing="false" onAction="#doMenuPIX" text="PIX" />
 							</items>
 						</Menu>
 					</menus>
@@ -167,27 +168,32 @@
 
 						</VBox>
 						<Region prefHeight="80.0" prefWidth="67.0" HBox.hgrow="ALWAYS" />
-						<VBox alignment="TOP_RIGHT">
+						<VBox alignment="TOP_RIGHT" prefHeight="84.0" prefWidth="342.0">
 							<children>
 
-								<Label prefHeight="19.0" prefWidth="220.0" text="Desenvolvido por:" />
+								<Label prefHeight="0.0" prefWidth="213.0" text="Desenvolvido por:" />
 								<Label prefHeight="19.0" prefWidth="214.0" text="Rian Diego - rian.diego@gmail.com" />
-								<ImageView fx:id="imgDoacao" fitHeight="48.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
-									<image>
-										<Image url="@img/209x48-doar-assina.gif" />
-									</image>
-									<cursor>
-										<Cursor fx:constant="HAND" />
-									</cursor>
-									<VBox.margin>
-										<Insets right="5.0" />
-									</VBox.margin>
-								</ImageView>
 							</children>
 
 
 
 						</VBox>
+                  <VBox alignment="TOP_RIGHT" prefHeight="84.0" prefWidth="93.0">
+                     <children>
+                        <ImageView fx:id="imgDoacao1" fitHeight="82.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@img/BarCodePix.jpeg" />
+                           </image>
+                           <VBox.margin>
+                              <Insets right="5.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="19.0" prefWidth="214.0" text="PIX" />
+                     </children>
+                  </VBox>
 					</children>
 
 				</HBox>

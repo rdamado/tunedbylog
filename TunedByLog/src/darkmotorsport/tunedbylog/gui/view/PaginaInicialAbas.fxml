@@ -35,6 +35,7 @@
 							<items>
 								<MenuItem mnemonicParsing="false" onAction="#doMenuUtilizacao" text="Utilização" />
 								<MenuItem mnemonicParsing="false" onAction="#doMenuSobre" text="Sobre" />
+								<MenuItem mnemonicParsing="false" onAction="#doMenuPIX" text="PIX" />
 							</items>
 						</Menu>
 					</menus>
@@ -185,27 +186,20 @@
 
 												</VBox>
 												<Region prefHeight="80.0" prefWidth="67.0" HBox.hgrow="ALWAYS" />
-												<VBox alignment="TOP_RIGHT">
+												<VBox alignment="TOP_RIGHT" prefHeight="105.0" prefWidth="143.0">
 													<children>
 
 														<Label prefHeight="19.0" prefWidth="220.0" text="Desenvolvido por:" />
-														<Label prefHeight="19.0" prefWidth="214.0" text="Rian Diego - rian.diego@gmail.com" />
-														<ImageView fx:id="imgDoacao" fitHeight="48.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
-															<image>
-																<Image url="@img/209x48-doar-assina.gif" />
-															</image>
-															<cursor>
-																<Cursor fx:constant="HAND" />
-															</cursor>
-															<VBox.margin>
-																<Insets right="5.0" />
-															</VBox.margin>
-														</ImageView>
+														<Label prefHeight="19.0" prefWidth="220.0" text="Rian Diego" />
+                                          <Label prefHeight="19.0" prefWidth="220.0" text="rian.diego@gmail.com" />
+                                          <Label prefHeight="19.0" prefWidth="220.0" text="Doação:" />
+                                          <Button fx:id="btnInterpolar1" onAction="#doMenuPIX" prefHeight="29.0" prefWidth="186.0" text="PIX" textAlignment="JUSTIFY" />
 													</children>
 
 
 
 												</VBox>
+                                    <VBox alignment="TOP_RIGHT" />
 											</children>
 
 										</HBox>
